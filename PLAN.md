@@ -135,6 +135,26 @@ zie header/footer/favicon hieronder.
 - Ongebruikt `PhaseNotice`-component verwijderd (geen enkele pagina
   toont nog een "volgt in Fase X"-melding — alles is af).
 
+**Live gezet + eerste ronde livefeedback verwerkt:**
+- Site staat live op `martin-aarts-website.netlify.app`, gekoppeld aan
+  de GitHub-repo — elke upload naar `main` bouwt automatisch opnieuw.
+- Merktagline "Precisie, betrouwbaarheid en vakmanschap in elk
+  project." toegevoegd aan de footer (bestaande zin van de klant,
+  overgenomen van de huidige live site).
+- Credit "Ontwikkeld door G.Passione" toegevoegd aan de footer, op
+  verzoek van de klant (was `door`, niet `por`, na bevestiging).
+- Eén foto verwijderd op verzoek: een privélocatie waarvoor nog geen
+  toestemming is — zowel uit `projects.ts` als het bestand zelf uit
+  `public/images/gallery/` gehaald.
+- Coverfoto van "Inmeten ondergrondse infrastructuur" vervangen door
+  een sterkere, bredere foto uit dezelfde locatie (haven-/terminalsite)
+  die eerder nog niet gebruikt was.
+- Nieuw project toegevoegd: "Topografische inmeting bij
+  nieuwbouwlocatie" — bij nader onderzoek bleek een deel van de 48
+  aangeleverde foto's een echt andere locatie te tonen (woonwijk in
+  aanbouw langs een kanaal, geen haventerrein) — verdiende een eigen
+  case in plaats van hergebruikte losse foto's.
+
 **Hosting/lancering:**
 - `netlify.toml` toegevoegd — kant-en-klare deployconfiguratie
   (buildcommando, publish-map `dist`, beveiligingsheaders, langdurige

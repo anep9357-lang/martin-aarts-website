@@ -5,18 +5,13 @@ Gebouwd met [Astro](https://astro.build).
 
 ## Status
 
-**Fase 1 — technisch fundament.** Zie `PLAN.md` voor de volledige fasering.
+**Fase 6 — live.** Alle pagina's zijn volledig gebouwd en live op
+`martin-aarts-website.netlify.app`. Zie `PLAN.md` voor de volledige
+fasering en de nog openstaande actiepunten (Formspree-koppeling, eigen
+domein, ontbrekende bedrijfsgegevens).
 
-Wat werkt al:
-- Projectstructuur, design tokens (`src/styles/tokens.css`), basiscomponenten
-  (`Header`, `Footer`, `Button`, `Card`, `IconBadge`, iconenset).
-- Routing-skelet voor de hele sitemap — elke pagina bestaat en rendert,
-  maar de meeste zijn nog een korte stub met een "Fase X"-markering.
-- De homepage (`/`) toont de werkende basis (typografie, knoppen,
-  dienstenkaarten) — dit is nog niet de volledig ontworpen homepage uit
-  de goedgekeurde Visual Direction; die volgt in Fase 2.
-
-Wat nog moet gebeuren, per fase, staat in `PLAN.md`.
+Site: Home, Diensten (6), Projecten (5 case studies), Apparatuur,
+Over ons, FAQ, Contact (met offerteformulier) en Privacyverklaring.
 
 ## Ontwikkelen
 

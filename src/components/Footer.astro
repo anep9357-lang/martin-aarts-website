@@ -37,6 +37,8 @@ const currentYear = new Date().getFullYear();
     </div>
   </div>
 
+  <p class="footer-tagline">Precisie, betrouwbaarheid en vakmanschap in elk project.</p>
+
   <div class="footer-bottom">
     <span>© {currentYear} Martin Aarts GWW, Agrarisch &amp; Transport Service — <a href="/privacyverklaring">Privacyverklaring</a></span>
     <div class="footer-social">
@@ -48,6 +50,7 @@ const currentYear = new Date().getFullYear();
       </a>
     </div>
   </div>
+  <p class="footer-credit">Ontwikkeld door G.Passione</p>
 </footer>
 
 <style>
@@ -63,6 +66,14 @@ const currentYear = new Date().getFullYear();
     gap: 40px;
     padding-bottom: 44px;
     border-bottom: 1px solid #3c3c3c;
+  }
+
+  .footer-tagline {
+    text-align: center;
+    color: #fff;
+    font-size: 14.5px;
+    font-weight: 600;
+    margin: 28px 0 0;
   }
 
   @media (max-width: 768px) {
@@ -130,6 +141,13 @@ const currentYear = new Date().getFullYear();
   }
   .footer-bottom a:hover {
     color: var(--color-accent);
+  }
+
+  .footer-credit {
+    text-align: center;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.3);
+    margin: 18px 0 0;
   }
 
   .footer-social {

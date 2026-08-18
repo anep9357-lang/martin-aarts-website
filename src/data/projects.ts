@@ -50,8 +50,8 @@ export const projects: Project[] = [
     slug: 'ondergrondse-infrastructuur',
     title: 'Inmeten ondergrondse infrastructuur',
     tags: ['As-built', 'GWW'],
-    image: '/images/projects/project-meting-ondergronds.jpg',
-    coverImage: '/images/projects/project-meting-ondergronds.jpg',
+    image: '/images/gallery/kabelput-klinkers-overzicht.jpg',
+    coverImage: '/images/gallery/kabelput-klinkers-overzicht.jpg',
     meta: { opdrachtgever: TBC, locatie: TBC, dienst: 'As-built · GWW', duur: TBC },
     beats: [
       { label: 'Uitdaging', text: TBC },
@@ -59,7 +59,7 @@ export const projects: Project[] = [
       { label: 'Technologie', text: 'RTK-GPS.' },
       { label: 'Resultaat', text: TBC },
     ],
-    metingPhotos: ['/images/gallery/ondergronds-put-meting.jpg', '/images/gallery/ondergronds-putten-overzicht.jpg'],
+    metingPhotos: ['/images/gallery/ondergronds-put-meting.jpg', '/images/gallery/kabelput-klinkers-detail.jpg'],
     specs: { apparatuur: TBC, coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
     result: { meetpunten: TBC, dagen: TBC, reviseringen: TBC },
     deliverables: [
@@ -80,7 +80,6 @@ export const projects: Project[] = [
       { label: 'Technologie', text: '3D-laserscanner, verwerkt tot puntenwolk.' },
       { label: 'Resultaat', text: TBC },
     ],
-    metingPhotos: ['/images/gallery/scanner-tripod-muur.jpg'],
     specs: { apparatuur: TBC, coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
     result: { meetpunten: TBC, dagen: TBC, reviseringen: TBC },
     deliverables: [
@@ -102,6 +101,27 @@ export const projects: Project[] = [
       { label: 'Resultaat', text: TBC },
     ],
     metingPhotos: ['/images/gallery/sportveld-gnss-actie-1.jpg', '/images/gallery/sportveld-gnss-actie-2.jpg'],
+    specs: { apparatuur: TBC, coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
+    result: { meetpunten: TBC, dagen: TBC, reviseringen: TBC },
+    deliverables: [
+      { icon: 'doc', label: 'PDF-rapport' },
+      { icon: 'ruler', label: 'CAD-tekening' },
+    ],
+  },
+  {
+    slug: 'nieuwbouwwijk-inmeting',
+    title: 'Topografische inmeting bij nieuwbouwlocatie',
+    tags: ['Topografische metingen', 'GWW'],
+    image: '/images/gallery/veld-gnss-wandelpad-1.jpg',
+    coverImage: '/images/gallery/veld-gnss-wandelpad-1.jpg',
+    meta: { opdrachtgever: TBC, locatie: TBC, dienst: 'Topografische metingen', duur: TBC },
+    beats: [
+      { label: 'Uitdaging', text: TBC },
+      { label: 'Meting', text: 'Topografische inmeting langs een wandelpad bij een nieuwbouwlocatie, met RTK-GPS.' },
+      { label: 'Technologie', text: 'RTK-GPS.' },
+      { label: 'Resultaat', text: TBC },
+    ],
+    metingPhotos: ['/images/gallery/veld-gnss-wandelpad-2.jpg', '/images/gallery/veld-gnss-hek.jpg'],
     specs: { apparatuur: TBC, coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
     result: { meetpunten: TBC, dagen: TBC, reviseringen: TBC },
     deliverables: [
