@@ -155,6 +155,29 @@ zie header/footer/favicon hieronder.
   aanbouw langs een kanaal, geen haventerrein) — verdiende een eigen
   case in plaats van hergebruikte losse foto's.
 
+**Portfolio flink uitgebreid met 6 nieuwe projecten** (klant leverde 45
+foto's aan, georganiseerd in 10 mappen per project):
+- "Uitzetwerk fundering technische cabine" — funderingspunten en
+  hoogtecontrole voor een technische cabine op een havenlocatie.
+- "Topografische inmeting bedrijventerrein"
+- "Topografische inmeting langs fietspad"
+- "Topografische inmeting terreinafzetting"
+- "Herinrichting kruispunt" — luchtfoto's beschikbaar gesteld door de
+  gemeente (geen eigen dronefoto's van Martin Aarts).
+- "Wegverharding — asfaltering en profielcontrole" — inclusief een
+  opname op een brug met stadsskyline.
+
+Daarnaast extra foto's toegevoegd aan de bestaande cases
+"Inmeten en uitzetten sportveld" en "Topografische inmeting bij
+nieuwbouwlocatie" (bleken uit dezelfde fotolevering te komen).
+
+Twee door de klant getoonde projecten (kruispunt met rode
+vrachtwagens/gestreepte palen, en een woonstraat met heggen knippen)
+zijn niet toegevoegd — de bijbehorende foto's waren niet vindbaar om
+te uploaden.
+
+Totaal nu 11 projecten in de portfolio (was 3 bij afronding van Fase 3).
+
 **Hosting/lancering:**
 - `netlify.toml` toegevoegd — kant-en-klare deployconfiguratie
   (buildcommando, publish-map `dist`, beveiligingsheaders, langdurige
