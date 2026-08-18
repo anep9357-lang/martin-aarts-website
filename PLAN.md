@@ -178,6 +178,14 @@ te uploaden.
 
 Totaal nu 11 projecten in de portfolio (was 3 bij afronding van Fase 3).
 
+**Twee echte datapunten bevestigd door de klant** (niet uit een
+AI-zoekresultaat overgenomen — expliciet nagevraagd en bevestigd):
+- Actief sinds **2017** — nu zichtbaar op Home (hero + trustbar) en
+  Over ons, en toegevoegd aan de JSON-LD structured data
+  (`foundingDate`).
+- KVK-nummer **69194963** — nu zichtbaar in de Privacyverklaring.
+- BTW-nummer blijft GEGEVEN NOG TE BEVESTIGEN (niet gevraagd/bevestigd).
+
 **Hosting/lancering:**
 - `netlify.toml` toegevoegd — kant-en-klare deployconfiguratie
   (buildcommando, publish-map `dist`, beveiligingsheaders, langdurige
@@ -202,10 +210,12 @@ Totaal nu 11 projecten in de portfolio (was 3 bij afronding van Fase 3).
 ## Open datapunten (uit Fase 0 — nog steeds openstaand)
 
 Zie de gepubliceerde fotolijst voor de volledige tabel. Kort:
-jaren ervaring, aantal projecten, werkgebied, reactietermijn,
-openingstijden, telefoon (indien anders dan WhatsApp), certificeringen,
-klantgegevens per projectcase, hosting van het huidige domein,
-KVK-nummer, BTW-nummer.
+aantal projecten afgerond (levenslange teller, niet de portfolio),
+werkgebied, reactietermijn, openingstijden, telefoon (indien anders
+dan WhatsApp), certificeringen, klantgegevens per projectcase, hosting
+van het huidige domein, BTW-nummer.
+
+✅ Bevestigd: actief sinds 2017, KVK-nummer 69194963 (zie hierboven).
 
 ## Bekende technische keuzes, nog te bevestigen
 
