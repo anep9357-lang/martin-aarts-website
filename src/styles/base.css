@@ -86,6 +86,19 @@ img {
   background: var(--color-accent-hover);
 }
 
+/* markering voor elk nog te bevestigen datapunt — zie PLAN.md.
+   Nooit een cijfer of feit verzinnen; dit chipje in de plaats zetten. */
+.tbc {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-muted);
+  color: var(--color-ink-soft);
+  text-transform: uppercase;
+}
+
 /* wrapper die de body nooit horizontaal laat scrollen, ook niet
    bij brede tabellen/diagrammen binnenin */
 .overflow-x {

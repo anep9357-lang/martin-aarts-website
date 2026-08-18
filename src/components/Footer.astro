@@ -7,7 +7,7 @@ const currentYear = new Date().getFullYear();
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="brand">
-        <span class="mark" aria-hidden="true"><Icon name="mark" size={20} strokeWidth={2} /></span>
+        <img src="/images/brand/logo-mark-128.png" alt="" width="34" height="34" class="mark" />
         <span class="brand-name">Martin Aarts</span>
       </div>
       <p>Landmeetkundige diensten voor GWW-, bouw- en agrarische projecten in Nederland.</p>
@@ -38,7 +38,7 @@ const currentYear = new Date().getFullYear();
   </div>
 
   <div class="footer-bottom">
-    <span>© {currentYear} Martin Aarts GWW, Agrarisch &amp; Transport Service</span>
+    <span>© {currentYear} Martin Aarts GWW, Agrarisch &amp; Transport Service — <a href="/privacyverklaring">Privacyverklaring</a></span>
     <div class="footer-social">
       <a href="https://wa.me/31644708530" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
         <Icon name="wa" size={16} />
@@ -80,11 +80,7 @@ const currentYear = new Date().getFullYear();
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    border: 2px solid #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-accent);
+    flex-shrink: 0;
   }
   .footer-brand .brand-name {
     font-family: var(--font-display);
@@ -127,6 +123,13 @@ const currentYear = new Date().getFullYear();
     padding-top: 26px;
     font-size: 12.5px;
     color: rgba(255, 255, 255, 0.4);
+  }
+  .footer-bottom a {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: underline;
+  }
+  .footer-bottom a:hover {
+    color: var(--color-accent);
   }
 
   .footer-social {

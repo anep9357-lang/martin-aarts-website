@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import PhaseNotice from '../../components/PhaseNotice.astro';
+import Button from '../../components/Button.astro';
+import PhotoFrame from '../../components/PhotoFrame.astro';
 import { services } from '../../data/services';
 
 export function getStaticPaths() {
@@ -16,27 +17,180 @@ const { service } = Astro.props;
   title={`${service.title} | Martin Aarts`}
   description={service.summary}
 >
-  <section class="page-head">
-    <span class="eyebrow mono">Dienst {service.num} / 06</span>
-    <h1>{service.title}</h1>
-    <p class="lead">{service.summary}</p>
+  <div class="breadcrumb mono">
+    <a href="/">Home</a> / <a href="/diensten">Diensten</a> / <span>{service.title}</span>
+  </div>
+
+  <section class="svc-hero">
+    <div class="svc-hero-grid">
+      <div>
+        <span class="svc-tagnum mono">Dienst {service.num} / 06</span>
+        <span class="eyebrow">{service.title}</span>
+        <h1>{service.title}</h1>
+        <p class="lead">{service.summary}</p>
+        <Button href="/contact" variant="primary" icon="arrow">Offerte voor deze dienst</Button>
+      </div>
+      <PhotoFrame
+        src={service.heroImage}
+        alt={service.title}
+        placeholderLabel={`Echte foto — ${service.title}`}
+        aspectRatio="4 / 3"
+        priority
+      />
+    </div>
   </section>
 
-  <PhaseNotice phase="Fase 2 — volledige dienstpagina (proces, apparatuur, projecten, FAQ)" />
+  <section class="section">
+    <div class="two-col">
+      <div>
+        <span class="eyebrow">Voor wie</span>
+        <h2>Sectoren die wij<br />ondersteunen</h2>
+        <div class="sectors">
+          {service.sectors.map((s: string) => <span class="sector-chip">{s}</span>)}
+        </div>
+      </div>
+      <div class="steps">
+        <span class="eyebrow" style="margin-bottom:20px;display:block;">Hoe het werkt</span>
+        {service.steps.map((step: { title: string; description: string }, i: number) => (
+          <div class="step">
+            <span class="step-num mono">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="ctaband">
+    <span class="eyebrow" style="justify-content:center;">{service.title} nodig?</span>
+    <h2>Vraag een offerte aan<br />voor uw project.</h2>
+    <Button href="/contact" variant="accent">Offerte aanvragen</Button>
+  </div>
 </Layout>
 
 <style>
-  .page-head {
-    padding: 56px var(--gutter) 8px;
-    max-width: 760px;
+  .breadcrumb {
+    padding: 22px var(--gutter) 0;
+    font-size: 12px;
+    color: var(--color-ink-faint);
   }
-  .page-head h1 {
-    font-size: 44px;
+  .breadcrumb a:hover {
+    color: var(--color-accent);
+  }
+  .breadcrumb span {
+    color: var(--color-ink);
+  }
+
+  .svc-hero {
+    padding: 36px var(--gutter) 0;
+  }
+  .svc-hero-grid {
+    display: grid;
+    grid-template-columns: 0.6fr 0.4fr;
+    gap: 48px;
+    align-items: end;
+    padding-bottom: 48px;
+  }
+  .svc-tagnum {
+    font-size: 13px;
+    color: var(--color-ink-faint);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .svc-hero h1 {
+    font-size: 52px;
     margin-top: 14px;
   }
   .lead {
     font-size: 17px;
     color: var(--color-ink-soft);
-    margin-top: 16px;
+    margin: 16px 0 26px;
+    max-width: 52ch;
+  }
+
+  .section {
+    padding: 0 var(--gutter) 88px;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 0.42fr 0.58fr;
+    gap: 64px;
+  }
+  .two-col h2 {
+    font-size: 30px;
+    margin: 12px 0 20px;
+  }
+  .sectors {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .sector-chip {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    border: 1.5px solid var(--color-line);
+    color: var(--color-ink-soft);
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+  }
+  .step {
+    display: flex;
+    gap: 24px;
+    padding: 24px 0;
+    border-top: 1px solid var(--color-line);
+  }
+  .step:last-child {
+    border-bottom: 1px solid var(--color-line);
+  }
+  .step-num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 26px;
+    color: var(--color-ink-faint);
+    width: 48px;
+    flex-shrink: 0;
+  }
+  .step h3 {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 15.5px;
+    text-transform: none;
+    margin: 0 0 6px;
+  }
+  .step p {
+    font-size: 13.5px;
+    color: var(--color-ink-soft);
+    margin: 0;
+    max-width: 58ch;
+  }
+
+  .ctaband {
+    background: var(--color-ink);
+    color: #fff;
+    padding: 64px var(--gutter);
+    text-align: center;
+  }
+  .ctaband h2 {
+    color: #fff;
+    font-size: 36px;
+    margin: 14px 0 22px;
+  }
+
+  @media (max-width: 900px) {
+    .svc-hero-grid,
+    .two-col {
+      grid-template-columns: 1fr;
+    }
+    .svc-hero h1 {
+      font-size: 36px;
+    }
   }
 </style>

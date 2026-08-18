@@ -1,19 +1,198 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import PhaseNotice from '../components/PhaseNotice.astro';
 ---
 <Layout
   title="Privacyverklaring | Martin Aarts"
-  description="Hoe Martin Aarts omgaat met persoonsgegevens."
+  description="Hoe Martin Aarts GWW, Agrarisch & Transport Service omgaat met persoonsgegevens."
 >
   <section class="page-head">
     <span class="eyebrow">Privacyverklaring</span>
     <h1>Privacy &amp; gegevens.</h1>
+    <p class="lead">Laatst bijgewerkt: <span class="tbc mono">GEGEVEN NOG TE BEVESTIGEN</span> — deze datum wordt bijgewerkt zodra deze verklaring definitief wordt vastgesteld.</p>
   </section>
-  <PhaseNotice phase="Fase 4 — verplicht voor lancering (AVG/GDPR), tekst wordt met u afgestemd" />
+
+  <article class="content">
+    <section>
+      <h2>1. Wie wij zijn</h2>
+      <p>
+        Deze website wordt beheerd door Martin Aarts GWW, Agrarisch &amp; Transport Service,
+        gevestigd aan Lisdodde 5, 4731 WP Oudenbosch. Voor vragen over deze
+        privacyverklaring of over uw gegevens kunt u contact opnemen via
+        <a href="mailto:info@martinaarts.xyz">info@martinaarts.xyz</a>.
+      </p>
+      <div class="fact-row">
+        <div><span class="k mono">KVK-nummer</span><span class="v tbc mono">GEGEVEN NOG TE BEVESTIGEN</span></div>
+        <div><span class="k mono">BTW-nummer</span><span class="v tbc mono">GEGEVEN NOG TE BEVESTIGEN</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>2. Welke gegevens wij verwerken</h2>
+      <p>Wij verwerken alleen persoonsgegevens die u zelf aan ons verstrekt, met name via het offerteformulier op de contactpagina:</p>
+      <ul>
+        <li>Naam</li>
+        <li>Bedrijfsnaam (indien van toepassing)</li>
+        <li>E-mailadres</li>
+        <li>Telefoonnummer (indien opgegeven)</li>
+        <li>Projectlocatie en omschrijving van uw aanvraag</li>
+      </ul>
+      <p>Wij verzamelen geen gegevens via cookies of trackingtechnologie — zie sectie 6.</p>
+    </section>
+
+    <section>
+      <h2>3. Waarvoor wij deze gegevens gebruiken</h2>
+      <p>
+        Wij gebruiken de gegevens uitsluitend om uw offerteaanvraag te
+        behandelen, contact met u op te nemen over uw project en, na
+        akkoord, de overeengekomen dienstverlening uit te voeren. Wij
+        gebruiken uw gegevens niet voor marketingdoeleinden zonder uw
+        uitdrukkelijke toestemming.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. Delen met derden</h2>
+      <p>
+        Het offerteformulier op deze website wordt verwerkt door
+        <strong>Formspree</strong>, een externe formulierdienst die de
+        ingevulde gegevens rechtstreeks naar ons e-mailadres doorstuurt.
+        Formspree treedt hierbij op als verwerker namens ons. Wij delen
+        uw gegevens niet met andere derde partijen, tenzij dit wettelijk
+        verplicht is.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Bewaartermijn</h2>
+      <p>
+        Wij bewaren uw gegevens niet langer dan noodzakelijk is voor het
+        doel waarvoor ze zijn verstrekt, of zolang de wet dit voorschrijft
+        (bijvoorbeeld de fiscale bewaarplicht bij een overeenkomst).
+        Exacte bewaartermijnen per situatie: <span class="tbc mono">GEGEVEN NOG TE BEVESTIGEN</span>.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Cookies</h2>
+      <p>
+        Deze website maakt op dit moment geen gebruik van trackingcookies,
+        analytics- of advertentiecookies. Mocht dit in de toekomst
+        wijzigen, dan wordt deze verklaring daarop aangepast en wordt u
+        waar nodig om toestemming gevraagd.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. Beveiliging</h2>
+      <p>
+        Wij nemen passende technische en organisatorische maatregelen om
+        uw gegevens te beschermen tegen verlies of onrechtmatige
+        verwerking.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Uw rechten</h2>
+      <p>Op grond van de AVG heeft u het recht om:</p>
+      <ul>
+        <li>Inzage te vragen in de gegevens die wij van u verwerken</li>
+        <li>Onjuiste gegevens te laten corrigeren</li>
+        <li>Uw gegevens te laten verwijderen</li>
+        <li>Bezwaar te maken tegen de verwerking van uw gegevens</li>
+        <li>Een klacht in te dienen bij de Autoriteit Persoonsgegevens</li>
+      </ul>
+      <p>Neem voor het uitoefenen van deze rechten contact op via <a href="mailto:info@martinaarts.xyz">info@martinaarts.xyz</a>.</p>
+    </section>
+
+    <section>
+      <h2>9. Wijzigingen</h2>
+      <p>Wij kunnen deze privacyverklaring van tijd tot tijd aanpassen. De meest actuele versie staat altijd op deze pagina.</p>
+    </section>
+  </article>
+
+  <div class="ctaband">
+    <span class="eyebrow" style="justify-content:center;">Vraag over uw gegevens?</span>
+    <h2>Neem gerust contact op.</h2>
+    <a href="mailto:info@martinaarts.xyz" class="btn-cta">info@martinaarts.xyz</a>
+  </div>
 </Layout>
 
 <style>
-  .page-head { padding: 56px var(--gutter) 8px; }
-  .page-head h1 { font-size: 40px; margin-top: 12px; }
+  .page-head { padding: 56px var(--gutter) 32px; max-width: 760px; }
+  .page-head h1 { font-size: 44px; margin-top: 12px; }
+  .lead { font-size: 14px; color: var(--color-ink-faint); margin-top: 16px; }
+
+  .content {
+    padding: 0 var(--gutter) 88px;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .content h2 {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 19px;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-bottom: 12px;
+  }
+  .content p {
+    font-size: 15px;
+    color: var(--color-ink-soft);
+    line-height: 1.7;
+    max-width: 68ch;
+  }
+  .content ul {
+    margin: 0 0 1em;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .content li {
+    font-size: 15px;
+    color: var(--color-ink-soft);
+    line-height: 1.6;
+  }
+  .content a {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+  }
+
+  .fact-row {
+    display: flex;
+    gap: 40px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-line);
+    flex-wrap: wrap;
+  }
+  .fact-row > div { display: flex; flex-direction: column; gap: 4px; }
+  .fact-row .k { font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-ink-faint); }
+
+  .ctaband {
+    background: var(--color-ink);
+    color: #fff;
+    padding: 64px var(--gutter);
+    text-align: center;
+  }
+  .ctaband h2 {
+    color: #fff;
+    font-size: 34px;
+    margin: 14px 0 22px;
+  }
+  .btn-cta {
+    display: inline-flex;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    background: var(--color-accent);
+    color: var(--color-ink);
+    font-weight: 700;
+    font-size: 14.5px;
+  }
+
+  @media (max-width: 700px) {
+    .page-head h1 { font-size: 30px; }
+  }
 </style>

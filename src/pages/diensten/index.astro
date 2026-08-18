@@ -2,7 +2,6 @@
 import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/Card.astro';
 import IconBadge from '../../components/IconBadge.astro';
-import PhaseNotice from '../../components/PhaseNotice.astro';
 import { services } from '../../data/services';
 ---
 <Layout
@@ -13,8 +12,6 @@ import { services } from '../../data/services';
     <span class="eyebrow">Diensten</span>
     <h1>Wat wij meten, zetten wij uit.</h1>
   </section>
-
-  <PhaseNotice phase="Fase 2" />
 
   <section class="svc-grid">
     {services.map((svc) => (

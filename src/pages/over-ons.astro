@@ -1,19 +1,229 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import PhaseNotice from '../components/PhaseNotice.astro';
+import Button from '../components/Button.astro';
+import IconBadge from '../components/IconBadge.astro';
+import PhotoFrame from '../components/PhotoFrame.astro';
 ---
 <Layout
   title="Over ons | Martin Aarts"
   description="Martin Aarts GWW, Agrarisch & Transport Service — landmeetkundige ondersteuning voor GWW-, bouw- en agrarische projecten."
 >
-  <section class="page-head">
-    <span class="eyebrow">Over ons</span>
-    <h1>Techniek in handen van vakmensen.</h1>
+  <section class="hero">
+    <div class="hero-text">
+      <span class="eyebrow">Over ons</span>
+      <h1>Techniek in handen<br />van vakmensen.</h1>
+      <p class="lead">Martin Aarts GWW, Agrarisch &amp; Transport Service levert landmeetkundige ondersteuning voor GWW-, bouw- en agrarische projecten in Nederland. Moderne apparatuur — RTK-GPS, Total Station, 3D-laserscanning — ingezet door mensen die weten wat er op locatie speelt.</p>
+      <div class="hero-facts">
+        <div class="hero-fact"><span class="k mono">Ervaring</span><span class="v tbc">GEGEVEN NOG TE BEVESTIGEN</span></div>
+        <div class="hero-fact"><span class="k mono">Werkgebied</span><span class="v tbc">GEGEVEN NOG TE BEVESTIGEN</span></div>
+      </div>
+      <div class="hero-ctas">
+        <Button href="/contact" variant="primary" icon="arrow">Offerte aanvragen</Button>
+        <Button href="/projecten" variant="outline">Bekijk projecten</Button>
+      </div>
+    </div>
+    <PhotoFrame
+      src="/images/gallery/veld-gnss-wandelpad-1.jpg"
+      alt="Landmeting met GNSS-apparatuur in het veld"
+      aspectRatio="4 / 5"
+      class="hero-photo"
+      priority
+    />
   </section>
-  <PhaseNotice phase="Fase 3 — wacht op echte bedrijfsgeschiedenis, cijfers en (optioneel) teamfoto's" />
+
+  <section class="section">
+    <span class="eyebrow">Werkwijze</span>
+    <h2>Waar wij voor staan.</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <IconBadge icon="shield" size={44} />
+        <h3>Nauwkeurigheid zonder omwegen</h3>
+        <p>Elke meting is herleidbaar en controleerbaar — geen slag om de arm, geen ruis in de data die u ontvangt.</p>
+      </div>
+      <div class="value-card">
+        <IconBadge icon="field" size={44} />
+        <h3>Praktijkkennis uit het veld</h3>
+        <p>Wij kennen de dagelijkse realiteit van GWW-, bouw- en agrarische projecten — en meten daar direct op af.</p>
+      </div>
+      <div class="value-card">
+        <IconBadge icon="doc" size={44} />
+        <h3>Heldere levering</h3>
+        <p>Meetdata in het formaat dat u nodig heeft, direct bruikbaar voor ontwerp, uitvoering of revisie.</p>
+      </div>
+      <div class="value-card">
+        <IconBadge icon="scanner" size={44} />
+        <h3>Actuele apparatuur</h3>
+        <p>GNSS, Total Stations, digitale waterpassen en 3D-laserscanners — passend bij de precisie die het project vraagt.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section sectors">
+    <span class="eyebrow">Sectoren</span>
+    <h2>Voor wie wij werken.</h2>
+    <div class="sector-grid">
+      <div class="sector-card">
+        <h3>GWW &amp; infrastructuur</h3>
+        <p>Uitzetwerk, as-built metingen en controlemetingen voor grond-, weg- en waterbouwprojecten.</p>
+      </div>
+      <div class="sector-card">
+        <h3>Bouw &amp; renovatie</h3>
+        <p>3D-laserscanning en puntenwolken als basis voor BIM, renovatie en clash-detectie.</p>
+      </div>
+      <div class="sector-card">
+        <h3>Agrarisch</h3>
+        <p>Perceelmetingen, drainageontwerp, hoogtekaarten en bodemprofielen voor modern agrarisch beheer.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ctaband">
+    <span class="eyebrow" style="justify-content:center;">Kennismaken?</span>
+    <h2>Vraag vandaag nog<br />een vrijblijvende offerte aan.</h2>
+    <Button href="/contact" variant="accent">Offerte aanvragen</Button>
+  </div>
 </Layout>
 
 <style>
-  .page-head { padding: 56px var(--gutter) 8px; max-width: 760px; }
-  .page-head h1 { font-size: 46px; margin-top: 12px; }
+  .hero {
+    padding: 56px var(--gutter) 0;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+    padding-bottom: 88px;
+  }
+  .hero-text {
+    max-width: 560px;
+  }
+  .hero h1 {
+    font-size: 52px;
+    margin-top: 14px;
+  }
+  .lead {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    margin: 22px 0 0;
+    max-width: 50ch;
+  }
+  .hero-facts {
+    display: flex;
+    gap: 32px;
+    margin-top: 30px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-line);
+  }
+  .hero-fact {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .hero-fact .k {
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-ink-faint);
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  .hero :global(.hero-photo) {
+    height: 100%;
+    max-height: 560px;
+  }
+
+  .section {
+    padding: 88px var(--gutter);
+  }
+  .section h2 {
+    font-size: 38px;
+    margin: 12px 0 40px;
+    max-width: 16ch;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--color-line);
+    border: 1px solid var(--color-line);
+  }
+  .value-card {
+    background: var(--color-surface);
+    padding: 30px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .value-card h3 {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .value-card p {
+    font-size: 13.5px;
+    color: var(--color-ink-soft);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .sectors {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .sector-card {
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    padding: 30px 26px;
+  }
+  .sector-card h3 {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 18px;
+    text-transform: none;
+    margin: 0 0 10px;
+  }
+  .sector-card p {
+    font-size: 14px;
+    color: var(--color-ink-soft);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .ctaband {
+    background: var(--color-ink);
+    color: #fff;
+    padding: 80px var(--gutter);
+    text-align: center;
+  }
+  .ctaband h2 {
+    color: #fff;
+    font-size: 40px;
+    max-width: 22ch;
+    margin: 16px auto 22px;
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+    .hero h1 { font-size: 36px; }
+    .hero :global(.hero-photo) { height: 320px; max-height: none; }
+    .values-grid { grid-template-columns: 1fr 1fr; }
+    .sector-grid { grid-template-columns: 1fr; }
+    .section h2 { font-size: 28px; }
+  }
 </style>

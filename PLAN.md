@@ -5,13 +5,17 @@ Volgorde zoals goedgekeurd:
 ```
 FASE 0 — Data en beslissingen
 FASE 0.5 — Visual Direction + navigeerbaar prototype        ✅ afgerond, goedgekeurd
-FASE 1 — Technisch fundament                                🔵 dit werk
-FASE 2 — Home + Diensten (volledig ontworpen)
-FASE 3 — Projecten + Over ons + Apparatuur + FAQ
-FASE 4 — Contact + Formulieren + Privacyverklaring
-FASE 5 — SEO + Performance
-FASE 6 — QA + lancering
+FASE 1 — Technisch fundament                                ✅ afgerond, goedgekeurd
+FASE 2 — Home + Diensten (volledig ontworpen)                ✅ afgerond, goedgekeurd
+FASE 3 — Projecten + Over ons + Apparatuur + FAQ             ✅ afgerond, goedgekeurd
+FASE 4 — Contact + Formulieren + Privacyverklaring            ✅ afgerond, goedgekeurd
+FASE 5 — SEO + Performance                                    ✅ afgerond, goedgekeurd
+FASE 6 — QA + lancering                                       🔵 dit werk
 ```
+
+Tussendoor (na Fase 4-goedkeuring): de echte logo is aangeleverd en
+vervangt nu het abstracte kompas-icoon in header/footer/favicon —
+zie header/footer/favicon hieronder.
 
 ## Fase 1 — wat dit oplevert
 
@@ -26,30 +30,145 @@ FASE 6 — QA + lancering
 - Nog GEEN eindtekst, geen echte foto's, geen formulierlogica — dat is
   latere fases.
 
-## Sitemap (Fase 1 — routes bestaan, inhoud volgt)
+## Sitemap
 
-- `/` — homepage (basis werkt, volledig ontwerp in Fase 2)
-- `/diensten` — overzicht (Fase 2)
-- `/diensten/[slug]` × 6 — één per dienst (Fase 2)
-- `/projecten` — overzicht (Fase 3)
-- `/apparatuur` (Fase 3)
-- `/over-ons` (Fase 3)
-- `/faq` (Fase 3)
-- `/contact` — basis werkt, formulier in Fase 4
-- `/privacyverklaring` (Fase 4, verplicht voor lancering)
+- `/` — homepage ✅ (Fase 2)
+- `/diensten` — overzicht ✅ (Fase 2)
+- `/diensten/[slug]` × 6 — één per dienst ✅ (Fase 2)
+- `/projecten` — overzicht ✅ (Fase 3)
+- `/projecten/[slug]` × 4 — case study per project ✅ (Fase 3)
+- `/apparatuur` ✅ (Fase 3)
+- `/over-ons` ✅ (Fase 3)
+- `/faq` ✅ (Fase 3)
+- `/contact` ✅ (Fase 4)
+- `/privacyverklaring` ✅ (Fase 4)
 - `/404`
+
+## Fase 3 — wat dit oplevert
+
+- `/projecten`: overzicht van alle projecten (nu 4, inclusief een nieuw
+  toegevoegde case "Inmeten en uitzetten sportveld" — gebaseerd op
+  echte foto's die na Fase 2 zijn aangeleverd).
+- `/projecten/[slug]`: volledige case-study-pagina per project, exact
+  volgens het goedgekeurde Project-prototype uit Fase 0.5 — hero met
+  tags/opdrachtgever/locatie/dienst/duur, coverfoto, verhaalrail
+  (Uitdaging → Meting → Technologie → Resultaat) met foto's,
+  specificatietabel, resultaatcijfers en leverbare bestanden,
+  gerelateerde projecten, CTA-band.
+- `/apparatuur`: volledige instrumentenpagina — elk instrument met
+  echte foto, beschrijving en toepassingen (`src/data/equipment.ts`,
+  gedeeld met de homepage-strip).
+- `/over-ons`: bedrijfsverhaal, kernwaarden, sectoren.
+- `/faq`: uitgebreide FAQ in drie categorieën (herbruikt
+  `FaqAccordion`).
+- Nieuwe gedeelde utility-klasse `.tbc` verplaatst naar `base.css`
+  (was gedupliceerd per pagina).
+- `public/images/gallery/`: 11 nieuwe, geoptimaliseerde foto's
+  geselecteerd uit de 48 die na Fase 2 zijn aangeleverd — nu verwerkt
+  in projectfoto's en de Over-ons-hero.
+
+## Fase 4 — wat dit oplevert
+
+- `/contact`: volledig offerteformulier (naam, bedrijf, e-mail,
+  telefoon, type dienst, locatie, periode, omschrijving) +
+  contactgegevens-zijbalk + kaartinbedding (Google Maps, geen API-key
+  nodig) + mini-FAQ. Formulier is client-side gevalideerd (verplichte
+  velden, privacy-akkoord verplicht) en verstuurt via `fetch()` naar
+  Formspree, met inline succes-/foutmelding — geen redirect naar een
+  externe pagina.
+  **ACTIE VOOR LANCERING:** `FORMSPREE_ENDPOINT` in
+  `src/pages/contact.astro` bevat nu een placeholder
+  (`https://formspree.io/f/TBC`). Maak gratis een Formspree-account aan
+  met info@martinaarts.xyz, maak een formulier aan, en vervang de
+  placeholder door de echte formulier-URL — dan werkt het formulier.
+- `/privacyverklaring`: volledige AVG/GDPR-privacyverklaring — welke
+  gegevens, waarvoor, Formspree als verwerker, bewaartermijn,
+  cookiebeleid (momenteel geen tracking), rechten van betrokkenen.
+  KVK-nummer en BTW-nummer staan als GEGEVEN NOG TE BEVESTIGEN.
+- Footer linkt nu naar de privacyverklaring.
+- Nieuw `clock`-icoon toegevoegd aan de icon-sprite.
+
+## Fase 5 — wat dit oplevert
+
+- `@astrojs/sitemap` toegevoegd — genereert automatisch
+  `sitemap-index.xml` / `sitemap-0.xml` bij elke build, met alle 18
+  echte pagina's (404 automatisch uitgesloten).
+- `public/robots.txt` — staat alle crawlers toe, verwijst naar de
+  sitemap.
+- Echte, merk-consistente Open Graph-afbeelding (`og-default.jpg`,
+  1200×630) — verving een dode verwijzing naar een niet-bestaand
+  bestand. Gebruikt de echte logo, hero-foto en het kleursysteem.
+- `ProfessionalService`-structured data (JSON-LD) op elke pagina —
+  alleen bevestigde gegevens: naam, adres, telefoon, e-mail, LinkedIn.
+  Geen openingstijden/prijsklasse/beoordelingen (nog niet bevestigd).
+- `/404` krijgt nu `noindex` (mag niet in zoekresultaten verschijnen).
+- **Echte performance-bugfix:** `PhotoFrame` zette élke foto op
+  `loading="lazy"`, ook de hero-afbeelding die meteen zichtbaar is bij
+  het laden van de pagina — dat vertraagt de Largest Contentful Paint
+  onnodig. Nieuwe `priority`-prop toegevoegd en gezet op de vier
+  above-the-fold hero's (Home, Diensten-detail, Project-detail,
+  Over ons); alle overige foto's blijven lazy (correct voor
+  onder-de-vouw content).
+- `@astrojs/sitemap` v3.7.x (laatste) is gebouwd tegen Astro 6 en
+  crashte op deze Astro 4.16-basis; v3.2.1 is wel compatibel en
+  gebruikt.
+- Bekende, niet-urgente technische schuld: `npm audit` toont CVE's in
+  de gepinde Astro 4.16-lijn, maar die zitten allemaal in
+  dev-server/SSR/middleware/adapter-functionaliteit die deze site niet
+  gebruikt (volledig statische build, geen server). Een upgrade naar
+  Astro 7 is een breaking change en wordt bewust niet nu gedaan —
+  overweeg dit bij een toekomstig onderhoudsmoment.
+
+## Fase 6 — wat dit oplevert
+
+**QA-controle uitgevoerd op alle 19 pagina's:**
+- Alle 25 interne links (nav, footer, CTA's, kruisverwijzingen) geven
+  200 OK — geen dode links.
+- Elke pagina heeft precies één `<h1>` (correcte kopstructuur voor
+  toegankelijkheid en SEO).
+- Elke `<img>` heeft een `alt`-attribuut (leeg `alt=""` waar decoratief,
+  beschrijvend waar relevant).
+- Alle `<meta name="description">` zijn uniek en volledig ingevuld,
+  geen duplicaten.
+- Geen restanten van `undefined`/`[object Object]`/`NaN` of andere
+  render-artefacten in de pagina's.
+- Ongebruikt `PhaseNotice`-component verwijderd (geen enkele pagina
+  toont nog een "volgt in Fase X"-melding — alles is af).
+
+**Hosting/lancering:**
+- `netlify.toml` toegevoegd — kant-en-klare deployconfiguratie
+  (buildcommando, publish-map `dist`, beveiligingsheaders, langdurige
+  cache voor afbeeldingen).
+- **Aanbevolen pad:** Netlify, gratis tier, gekoppeld aan de GitHub-
+  repository. Voordeel: elke keer dat nieuwe bestanden naar de
+  GitHub-repo geüpload worden (zoals nu al gebeurt), bouwt en
+  publiceert Netlify de site automatisch opnieuw — geen aparte
+  deploystap nodig.
+- Definitieve DNS-koppeling (mijndomein → Netlify) is een handeling die
+  de gebruiker zelf moet doen bij mijndomein — buiten bereik van deze
+  sessie, maar goed gedocumenteerd in het antwoord aan de gebruiker.
+
+**Nog open vóór echte livegang:**
+1. `FORMSPREE_ENDPOINT` in `src/pages/contact.astro` koppelen aan een
+   echt Formspree-formulier (zie Fase 4).
+2. Netlify-account aanmaken + repo koppelen + domein overzetten
+   (zie hierboven).
+3. Alle "GEGEVEN NOG TE BEVESTIGEN"-datapunten hieronder invullen
+   zodra bekend — dit kan ook ná livegang, stuk voor stuk.
 
 ## Open datapunten (uit Fase 0 — nog steeds openstaand)
 
 Zie de gepubliceerde fotolijst voor de volledige tabel. Kort:
 jaren ervaring, aantal projecten, werkgebied, reactietermijn,
 openingstijden, telefoon (indien anders dan WhatsApp), certificeringen,
-klantgegevens per projectcase, hosting van het huidige domein.
+klantgegevens per projectcase, hosting van het huidige domein,
+KVK-nummer, BTW-nummer.
 
 ## Bekende technische keuzes, nog te bevestigen
 
-- Formulierverwerking (Fase 4): een serverloze oplossing (bijv. Netlify
-  Forms/Formspree of een kleine functie) — vereist te weten waar het
-  domein gehost wordt.
-- Hosting/deploy van de nieuwe site: nog open, hangt af van het
-  antwoord op de hosting-vraag hierboven.
+- Formulierverwerking: ✅ besloten in Fase 4 — Formspree (werkt
+  onafhankelijk van hosting). Formulier-ID nog te koppelen, zie
+  Fase 4 hierboven.
+- Hosting/deploy van de nieuwe site: nog open — gebruiker host het
+  huidige domein bij mijndomein; definitieve hostingkeuze voor de
+  nieuwe Astro-site volgt in Fase 6 (QA + lancering).

@@ -1,0 +1,153 @@
+---
+import PhotoFrame from './PhotoFrame.astro';
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+<div class="proj-card">
+  <a href={`/projecten/${project.slug}`} aria-label={project.title}>
+    <PhotoFrame
+      src={project.image}
+      alt={project.title}
+      placeholderLabel={`Echte foto — ${project.title}`}
+      aspectRatio="4 / 3"
+    />
+  </a>
+  <div class="proj-body">
+    <div class="proj-tags">
+      {project.tags.map((t) => <span class="proj-tag">{t}</span>)}
+    </div>
+    <h3><a href={`/projecten/${project.slug}`}>{project.title}</a></h3>
+    <button class="proj-story" type="button" aria-expanded="false">
+      {project.beats.map((b) => <span>{b.label}</span>)}
+    </button>
+    <div class="proj-reveal" hidden>
+      {project.beats.map((b) => (
+        <div class="proj-beat">
+          <span class="proj-beat-k mono">{b.label}</span>
+          <span class="proj-beat-v">{b.text}</span>
+        </div>
+      ))}
+      <a href={`/projecten/${project.slug}`} class="proj-detail-link">Volledige case study <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.proj-story').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const reveal = btn.parentElement?.querySelector<HTMLElement>('.proj-reveal');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      if (reveal) reveal.hidden = isOpen;
+    });
+  });
+</script>
+
+<style>
+  .proj-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .proj-card :global(.photo-frame) {
+    border-radius: 0;
+  }
+  .proj-body {
+    padding: 22px 24px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .proj-tags {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+  }
+  .proj-tag {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+    background: var(--color-accent-tint);
+    color: var(--color-accent-hover);
+  }
+  .proj-card h3 {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 19px;
+    text-transform: none;
+  }
+  .proj-story {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+  }
+  .proj-story span {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    color: var(--color-ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .proj-story span:not(:last-child)::after {
+    content: '→';
+    margin-left: 10px;
+    color: var(--color-line);
+  }
+  .proj-reveal {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-line);
+    flex-direction: column;
+    gap: 10px;
+  }
+  .proj-reveal[hidden] {
+    display: none;
+  }
+  .proj-reveal:not([hidden]) {
+    display: flex;
+  }
+  .proj-beat {
+    display: flex;
+    gap: 10px;
+  }
+  .proj-beat-k {
+    font-size: 9.5px;
+    color: var(--color-accent-hover);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    width: 78px;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  .proj-beat-v {
+    font-size: 12.5px;
+    color: var(--color-ink-soft);
+    line-height: 1.55;
+  }
+  .proj-detail-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 4px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--color-accent-hover);
+  }
+</style>

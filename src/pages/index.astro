@@ -3,105 +3,231 @@ import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
 import IconBadge from '../components/IconBadge.astro';
+import PhotoFrame from '../components/PhotoFrame.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import Icon from '../components/Icon.astro';
 import { services } from '../data/services';
+import { projects } from '../data/projects';
+import { equipment } from '../data/equipment';
+
+const faqItems = [
+  { q: 'Hoe lang duurt een meting gemiddeld?', a: 'Dat hangt af van de omvang van het project — bij de offerte geven wij altijd een concrete inschatting voor uw situatie.' },
+  { q: 'Welk bestandsformaat ontvang ik na afloop?', a: 'Dat stemmen wij vooraf met u af — denk aan CAD-tekeningen, puntenbestanden of een PDF-rapport, afhankelijk van de dienst.' },
+  { q: 'Werken jullie ook buiten het vaste werkgebied?', a: 'GEGEVEN NOG TE BEVESTIGEN — vraag dit gerust na bij het aanvragen van een offerte.' },
+];
 ---
 <Layout
   title="Martin Aarts | Landmeetkundige · GWW · 3D Scanning · Nederland"
   description="Professionele landmeetkundige diensten in Nederland: topografische metingen, uitzetwerk, GPS/RTK, 3D-laserscanning, puntenwolken en kwaliteitscontrole voor GWW-, bouw- en agrarische projecten."
 >
-  <section class="foundation-hero">
-    <span class="eyebrow">Fase 1 — technisch fundament</span>
-    <h1>Van meting tot<br />maatvoering.</h1>
-    <p class="lead">
-      Dit is de technische basis van de nieuwe website: componenten, kleuren
-      en typografie werken. De volledig ontworpen Homepage (zoals
-      goedgekeurd in de Visual Direction) wordt in Fase 2 hierop gebouwd.
-    </p>
-    <div class="hero-ctas">
-      <Button href="/contact" variant="primary" icon="arrow">Offerte aanvragen</Button>
-      <Button href="/projecten" variant="outline">Bekijk projecten</Button>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <span class="eyebrow">Landmeetkundig bureau · Nederland</span>
+        <h1>Van meting tot<br />maatvoering — <em>millimeter&shy;precies</em> in het veld.</h1>
+        <p class="lead">Betrouwbare meetdata voor ontwerp, uitvoering, revisie en kwaliteitscontrole binnen GWW-, bouw- en agrarische projecten.</p>
+        <div class="hero-ctas">
+          <Button href="/contact" variant="primary" icon="arrow">Offerte aanvragen</Button>
+          <Button href="/projecten" variant="outline">Bekijk projecten</Button>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-item"><Icon name="pin" size={17} /> Werkgebied: <span class="tbc mono">GEGEVEN NOG TE BEVESTIGEN</span></div>
+          <div class="hero-meta-item"><Icon name="shield" size={17} /> Ervaring: <span class="tbc mono">GEGEVEN NOG TE BEVESTIGEN</span></div>
+        </div>
+      </div>
+      <PhotoFrame
+        src="/images/hero/hero-landmeter-veld.jpg"
+        alt="Landmeter met GNSS-rover in het veld"
+        aspectRatio="3 / 4"
+        class="hero-photo"
+        priority
+      />
     </div>
   </section>
 
-  <section class="section">
+  <div class="ruler" aria-hidden="true"></div>
+
+  <!-- TRUST BAR -->
+  <div class="trustbar">
+    <div class="trust-item"><div class="trust-num tbc mono">GEGEVEN NOG TE BEVESTIGEN</div><div class="trust-lbl">jaar ervaring</div></div>
+    <div class="trust-item"><div class="trust-num tbc mono">GEGEVEN NOG TE BEVESTIGEN</div><div class="trust-lbl">projecten afgerond</div></div>
+    <div class="trust-item"><div class="trust-num">6</div><div class="trust-lbl">gespecialiseerde diensten</div></div>
+    <div class="trust-item"><div class="trust-num">RTK</div><div class="trust-lbl">GPS · Total Station · 3D-scanning</div></div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section" id="diensten">
     <div class="section-head">
-      <span class="eyebrow">Diensten</span>
-      <h2>Wat wij meten, zetten wij uit.</h2>
+      <div>
+        <span class="eyebrow">Diensten</span>
+        <h2>Wat wij meten,<br />zetten wij uit.</h2>
+      </div>
+      <p>Van eerste inmeting tot opleverdossier — zes gespecialiseerde diensten voor GWW, bouw en agrarische projecten.</p>
     </div>
     <div class="svc-grid">
       {services.map((svc) => (
-        <Card>
-          <div class="svc-top">
-            <IconBadge icon={svc.icon} size={52} />
-            <span class="svc-num mono">{svc.num}</span>
-          </div>
-          <h3 class="svc-title">{svc.title}</h3>
-          <p>{svc.summary}</p>
-        </Card>
+        <a href={`/diensten/${svc.slug}`} class="svc-link">
+          <Card hoverDark>
+            <div class="svc-top">
+              <div class="svc-icon"><Icon name={svc.icon} size={24} /></div>
+              <span class="svc-num mono">{svc.num}</span>
+            </div>
+            <h3 class="svc-title">{svc.title}</h3>
+            <p>{svc.summary}</p>
+            <span class="svc-arrow">Bekijk dienst <Icon name="arrow" size={16} /></span>
+          </Card>
+        </a>
       ))}
     </div>
   </section>
+
+  <!-- WHY US -->
+  <section class="section why">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Waarom Martin Aarts</span>
+        <h2>Techniek in handen<br />van vakmensen.</h2>
+      </div>
+      <p>Moderne apparatuur alleen is niet genoeg — het gaat om wie ermee werkt.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><IconBadge icon="shield" size={44} /><h3>Millimeternauwkeurig</h3><p>RTK-GPS, Total Station en 3D-scanning voor consistente, controleerbare resultaten.</p></div>
+      <div class="why-card"><IconBadge icon="scanner" size={44} /><h3>Moderne apparatuur</h3><p>GNSS, Total Stations, digitale waterpassen en 3D-laserscanners voor elk projecttype.</p></div>
+      <div class="why-card"><IconBadge icon="doc" size={44} /><h3>Heldere levering</h3><p>Meetdata direct bruikbaar voor ontwerp, uitvoering, revisie en kwaliteitscontrole.</p></div>
+      <div class="why-card"><IconBadge icon="field" size={44} /><h3>GWW, bouw &amp; agrarisch</h3><p>Praktijkervaring in infrastructuur, bouwprojecten en agrarische toepassingen.</p></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projecten">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Projecten</span>
+        <h2>Van uitdaging<br />tot resultaat.</h2>
+      </div>
+      <a href="/projecten" class="section-link">Alle projecten <Icon name="arrow" size={17} /></a>
+    </div>
+    <div class="proj-grid">
+      {projects.slice(0, 3).map((p) => <ProjectCard project={p} />)}
+    </div>
+  </section>
+
+  <!-- EQUIPMENT -->
+  <section class="section equip" id="apparatuur">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Apparatuur</span>
+        <h2>Instrumenten die<br />het verschil maken.</h2>
+      </div>
+      <a href="/apparatuur" class="section-link">Alle apparatuur <Icon name="arrow" size={17} /></a>
+    </div>
+    <div class="equip-strip">
+      {equipment.map((eq) => (
+        <div class="equip-item">
+          <PhotoFrame src={eq.image} alt={eq.title} aspectRatio="4 / 3" />
+          <div class="equip-item-body">
+            <Icon name={eq.icon} size={22} />
+            <h3>{eq.title}</h3>
+            <p>{eq.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Veelgestelde vragen</span>
+        <h2>Nog twijfels?</h2>
+      </div>
+    </div>
+    <FaqAccordion items={faqItems} />
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="ctaband">
+    <span class="eyebrow" style="justify-content:center;">Klaar om te starten?</span>
+    <h2>Vraag vandaag nog een<br />vrijblijvende offerte aan.</h2>
+    <p>Stuur uw projectgegevens door — reactietermijn: <span class="tbc mono">GEGEVEN NOG TE BEVESTIGEN</span>.</p>
+    <div class="hero-ctas" style="justify-content:center;">
+      <Button href="/contact" variant="accent">Offerte aanvragen</Button>
+      <Button href="https://wa.me/31644708530" variant="outline-on-dark">WhatsApp ons</Button>
+    </div>
+  </div>
 </Layout>
 
 <style>
-  .foundation-hero {
-    padding: 64px var(--gutter) 56px;
-    max-width: 760px;
-  }
-  .foundation-hero h1 {
-    font-size: 60px;
-    margin-top: 16px;
-  }
-  .lead {
-    font-size: 18px;
-    line-height: 1.6;
-    color: var(--color-ink-soft);
-    margin: 20px 0 0;
-  }
-  .hero-ctas {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-  }
+  .hero { padding: 64px var(--gutter) 0; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; padding-bottom: 56px; }
+  .hero-left { max-width: 560px; }
+  .hero h1 { font-size: 62px; color: var(--color-ink); margin-top: 16px; }
+  .hero h1 em { font-style: normal; color: var(--color-accent); }
+  .lead { font-size: 19px; line-height: 1.6; color: var(--color-ink-soft); max-width: 46ch; margin: 22px 0 0; }
+  .hero-ctas { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
+  .hero-meta { display: flex; gap: 26px; margin-top: 40px; flex-wrap: wrap; }
+  .hero-meta-item { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--color-ink-soft); }
+  .hero-meta-item :global(svg) { color: var(--color-accent); }
+  .tbc { font-size: 9.5px; letter-spacing: 0.05em; padding: 2px 7px; border-radius: var(--radius-full); background: var(--color-surface-muted); color: var(--color-ink-soft); text-transform: uppercase; }
+  .hero :global(.hero-photo) { height: 580px; }
 
-  .section {
-    padding: 64px var(--gutter) 96px;
-  }
-  .section-head h2 {
-    font-size: 38px;
-    margin-top: 12px;
-  }
+  .ruler { height: 7px; background-image: repeating-linear-gradient(90deg, var(--color-ink) 0 1px, transparent 1px 14px); opacity: 0.22; }
 
-  .svc-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-    margin-top: 40px;
-  }
+  .trustbar { padding: 26px var(--gutter); display: flex; flex-wrap: wrap; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); background: var(--color-surface); }
+  .trust-item { flex: 1 1 200px; padding: 0 28px; border-left: 1px solid var(--color-line); display: flex; flex-direction: column; gap: 3px; }
+  .trust-item:first-child { border-left: none; padding-left: 0; }
+  .trust-num { font-family: var(--font-display); font-weight: 800; font-size: 26px; color: var(--color-ink); }
+  .trust-num.tbc { font-size: 10px; background: none; padding: 0; }
+  .trust-lbl { font-size: 13px; color: var(--color-ink-soft); }
+
+  .section { padding: 88px var(--gutter); }
+  .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 44px; flex-wrap: wrap; }
+  .section-head h2 { font-size: 40px; max-width: 16ch; margin-top: 12px; }
+  .section-head p { color: var(--color-ink-soft); max-width: 40ch; font-size: 15.5px; margin: 10px 0 0; }
+  .section-link { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14.5px; white-space: nowrap; padding-bottom: 6px; }
+
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .svc-link { color: inherit; display: block; }
+  .svc-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .svc-icon { width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid var(--color-ink); display: flex; align-items: center; justify-content: center; transition: 0.2s; }
+  :global(.card-hover-dark:hover) .svc-icon { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-ink); }
+  .svc-num { font-size: 12px; color: var(--color-ink-faint); }
+  :global(.card-hover-dark:hover) .svc-num { color: rgba(255,255,255,0.4); }
+  .svc-title { font-family: var(--font-body); font-weight: 800; font-size: 19px; text-transform: none; letter-spacing: 0; }
+  .svc-arrow { margin-top: auto; display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; }
+  :global(.card-hover-dark:hover) .svc-arrow { color: var(--color-accent); }
+
+  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--color-line); border: 1px solid var(--color-line); }
+  .why-card { background: var(--color-surface); padding: 30px 26px; display: flex; flex-direction: column; gap: 14px; }
+  .why-card h3 { font-family: var(--font-body); font-weight: 800; font-size: 16px; text-transform: none; letter-spacing: 0; }
+  .why-card p { font-size: 13.5px; color: var(--color-ink-soft); line-height: 1.6; margin: 0; }
+
+  .proj-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 22px; }
+
+  .equip-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; background: var(--color-line); border: 1px solid var(--color-line); }
+  .equip-item { background: var(--color-surface); display: flex; flex-direction: column; }
+  .equip-item-body { padding: 18px 16px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+  .equip-item-body :global(svg) { color: var(--color-accent); }
+  .equip-item-body h3 { font-family: var(--font-body); font-weight: 700; font-size: 13.5px; margin: 0; text-transform: none; }
+  .equip-item-body p { font-size: 11.5px; color: var(--color-ink-faint); margin: 0; line-height: 1.5; }
+
+  .ctaband { background: var(--color-ink); color: #fff; padding: 80px var(--gutter); text-align: center; }
+  .ctaband h2 { color: #fff; font-size: 44px; max-width: 24ch; margin: 16px auto 0; }
+  .ctaband p { color: rgba(255,255,255,0.6); margin: 16px auto 0; max-width: 52ch; font-size: 16px; }
+  .ctaband .tbc { background: rgba(255,255,255,0.12); color: #fff; }
+
   @media (max-width: 900px) {
-    .svc-grid {
-      grid-template-columns: 1fr;
-    }
-    .foundation-hero h1 {
-      font-size: 40px;
-    }
-  }
-
-  .svc-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  .svc-num {
-    font-size: 12px;
-    color: var(--color-ink-faint);
-  }
-  .svc-title {
-    font-family: var(--font-body);
-    font-weight: 800;
-    font-size: 19px;
-    text-transform: none;
-    letter-spacing: 0;
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 40px; }
+    .hero :global(.hero-photo) { height: 320px; }
+    .svc-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .proj-grid { grid-template-columns: 1fr; }
+    .equip-strip { grid-template-columns: 1fr 1fr; }
+    .section { padding: 56px var(--gutter); }
+    .ctaband h2 { font-size: 30px; }
   }
 </style>
