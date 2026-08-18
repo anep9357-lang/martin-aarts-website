@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+import Card from '../components/Card.astro';
+import IconBadge from '../components/IconBadge.astro';
+import { services } from '../data/services';
+---
+<Layout
+  title="Martin Aarts | Landmeetkundige · GWW · 3D Scanning · Nederland"
+  description="Professionele landmeetkundige diensten in Nederland: topografische metingen, uitzetwerk, GPS/RTK, 3D-laserscanning, puntenwolken en kwaliteitscontrole voor GWW-, bouw- en agrarische projecten."
+>
+  <section class="foundation-hero">
+    <span class="eyebrow">Fase 1 — technisch fundament</span>
+    <h1>Van meting tot<br />maatvoering.</h1>
+    <p class="lead">
+      Dit is de technische basis van de nieuwe website: componenten, kleuren
+      en typografie werken. De volledig ontworpen Homepage (zoals
+      goedgekeurd in de Visual Direction) wordt in Fase 2 hierop gebouwd.
+    </p>
+    <div class="hero-ctas">
+      <Button href="/contact" variant="primary" icon="arrow">Offerte aanvragen</Button>
+      <Button href="/projecten" variant="outline">Bekijk projecten</Button>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="eyebrow">Diensten</span>
+      <h2>Wat wij meten, zetten wij uit.</h2>
+    </div>
+    <div class="svc-grid">
+      {services.map((svc) => (
+        <Card>
+          <div class="svc-top">
+            <IconBadge icon={svc.icon} size={52} />
+            <span class="svc-num mono">{svc.num}</span>
+          </div>
+          <h3 class="svc-title">{svc.title}</h3>
+          <p>{svc.summary}</p>
+        </Card>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .foundation-hero {
+    padding: 64px var(--gutter) 56px;
+    max-width: 760px;
+  }
+  .foundation-hero h1 {
+    font-size: 60px;
+    margin-top: 16px;
+  }
+  .lead {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+    margin: 20px 0 0;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+
+  .section {
+    padding: 64px var(--gutter) 96px;
+  }
+  .section-head h2 {
+    font-size: 38px;
+    margin-top: 12px;
+  }
+
+  .svc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 40px;
+  }
+  @media (max-width: 900px) {
+    .svc-grid {
+      grid-template-columns: 1fr;
+    }
+    .foundation-hero h1 {
+      font-size: 40px;
+    }
+  }
+
+  .svc-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .svc-num {
+    font-size: 12px;
+    color: var(--color-ink-faint);
+  }
+  .svc-title {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 19px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+</style>

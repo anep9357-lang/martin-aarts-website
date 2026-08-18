@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PhaseNotice from '../components/PhaseNotice.astro';
+---
+<Layout
+  title="Veelgestelde vragen | Martin Aarts"
+  description="Antwoorden op de meest gestelde vragen over metingen, uitzetwerk en levertijden."
+>
+  <section class="page-head">
+    <span class="eyebrow">Veelgestelde vragen</span>
+    <h1>Nog twijfels?</h1>
+  </section>
+  <PhaseNotice phase="Fase 3" />
+</Layout>
+
+<style>
+  .page-head { padding: 56px var(--gutter) 8px; }
+  .page-head h1 { font-size: 46px; margin-top: 12px; }
+</style>

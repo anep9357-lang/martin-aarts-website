@@ -1,0 +1,24 @@
+---
+// Duidelijk zichtbare markering op pagina's die deze fase nog niet
+// volledig bouwt — zodat niemand een kale pagina per ongeluk voor
+// "af" aanziet tijdens een preview.
+interface Props {
+  phase: string;
+}
+const { phase } = Astro.props;
+---
+<div class="phase-notice">
+  <span class="mono">Inhoud van deze pagina volgt in {phase}</span>
+</div>
+
+<style>
+  .phase-notice {
+    margin: 0 var(--gutter) 40px;
+    padding: 14px 18px;
+    background: var(--color-accent-tint);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 2px;
+    font-size: 0.85rem;
+    color: var(--color-ink-soft);
+  }
+</style>

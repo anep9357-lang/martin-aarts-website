@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PhaseNotice from '../../components/PhaseNotice.astro';
+import { services } from '../../data/services';
+
+export function getStaticPaths() {
+  return services.map((svc) => ({
+    params: { slug: svc.slug },
+    props: { service: svc },
+  }));
+}
+
+const { service } = Astro.props;
+---
+<Layout
+  title={`${service.title} | Martin Aarts`}
+  description={service.summary}
+>
+  <section class="page-head">
+    <span class="eyebrow mono">Dienst {service.num} / 06</span>
+    <h1>{service.title}</h1>
+    <p class="lead">{service.summary}</p>
+  </section>
+
+  <PhaseNotice phase="Fase 2 — volledige dienstpagina (proces, apparatuur, projecten, FAQ)" />
+</Layout>
+
+<style>
+  .page-head {
+    padding: 56px var(--gutter) 8px;
+    max-width: 760px;
+  }
+  .page-head h1 {
+    font-size: 44px;
+    margin-top: 14px;
+  }
+  .lead {
+    font-size: 17px;
+    color: var(--color-ink-soft);
+    margin-top: 16px;
+  }
+</style>

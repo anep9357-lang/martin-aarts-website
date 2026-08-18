@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PhaseNotice from '../components/PhaseNotice.astro';
+---
+<Layout
+  title="Privacyverklaring | Martin Aarts"
+  description="Hoe Martin Aarts omgaat met persoonsgegevens."
+>
+  <section class="page-head">
+    <span class="eyebrow">Privacyverklaring</span>
+    <h1>Privacy &amp; gegevens.</h1>
+  </section>
+  <PhaseNotice phase="Fase 4 — verplicht voor lancering (AVG/GDPR), tekst wordt met u afgestemd" />
+</Layout>
+
+<style>
+  .page-head { padding: 56px var(--gutter) 8px; }
+  .page-head h1 { font-size: 40px; margin-top: 12px; }
+</style>

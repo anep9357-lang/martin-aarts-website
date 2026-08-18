@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+import IconBadge from '../../components/IconBadge.astro';
+import PhaseNotice from '../../components/PhaseNotice.astro';
+import { services } from '../../data/services';
+---
+<Layout
+  title="Diensten | Martin Aarts"
+  description="Zes gespecialiseerde landmeetkundige diensten voor GWW-, bouw- en agrarische projecten."
+>
+  <section class="page-head">
+    <span class="eyebrow">Diensten</span>
+    <h1>Wat wij meten, zetten wij uit.</h1>
+  </section>
+
+  <PhaseNotice phase="Fase 2" />
+
+  <section class="svc-grid">
+    {services.map((svc) => (
+      <a href={`/diensten/${svc.slug}`} class="svc-link">
+        <Card>
+          <IconBadge icon={svc.icon} size={48} />
+          <h2 class="svc-title">{svc.title}</h2>
+          <p>{svc.summary}</p>
+        </Card>
+      </a>
+    ))}
+  </section>
+</Layout>
+
+<style>
+  .page-head {
+    padding: 56px var(--gutter) 32px;
+  }
+  .page-head h1 {
+    font-size: 46px;
+    margin-top: 12px;
+  }
+  .svc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    padding: 0 var(--gutter) 96px;
+  }
+  @media (max-width: 900px) {
+    .svc-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .svc-link {
+    color: inherit;
+  }
+  .svc-title {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 18px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+</style>

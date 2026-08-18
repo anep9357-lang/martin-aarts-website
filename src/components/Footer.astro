@@ -1,0 +1,150 @@
+---
+import Icon from './Icon.astro';
+
+const currentYear = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand">
+        <span class="mark" aria-hidden="true"><Icon name="mark" size={20} strokeWidth={2} /></span>
+        <span class="brand-name">Martin Aarts</span>
+      </div>
+      <p>Landmeetkundige diensten voor GWW-, bouw- en agrarische projecten in Nederland.</p>
+    </div>
+
+    <div class="footer-col">
+      <h6 class="mono">Diensten</h6>
+      <a href="/diensten/topografische-metingen">Topografische metingen</a>
+      <a href="/diensten/uitzetwerk">Uitzetwerk</a>
+      <a href="/diensten/3d-laserscanning">3D-laserscanning</a>
+      <a href="/diensten/agrarische-metingen">Agrarische metingen</a>
+    </div>
+
+    <div class="footer-col">
+      <h6 class="mono">Bedrijf</h6>
+      <a href="/over-ons">Over ons</a>
+      <a href="/projecten">Projecten</a>
+      <a href="/apparatuur">Apparatuur</a>
+      <a href="/faq">Veelgestelde vragen</a>
+    </div>
+
+    <div class="footer-col">
+      <h6 class="mono">Contact</h6>
+      <p>Lisdodde 5, 4731 WP Oudenbosch</p>
+      <a href="mailto:info@martinaarts.xyz">info@martinaarts.xyz</a>
+      <a href="https://wa.me/31644708530">+31 6 44 70 85 30</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© {currentYear} Martin Aarts GWW, Agrarisch &amp; Transport Service</span>
+    <div class="footer-social">
+      <a href="https://wa.me/31644708530" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+        <Icon name="wa" size={16} />
+      </a>
+      <a href="https://www.linkedin.com/in/martin-aarts-680567140/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <span class="mono li-glyph">in</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--gradient-graphite);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 64px var(--gutter) 30px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 44px;
+    border-bottom: 1px solid #3c3c3c;
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .footer-brand .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .footer-brand .mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+  }
+  .footer-brand .brand-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .footer-brand p {
+    font-size: 13.5px;
+    line-height: 1.7;
+    max-width: 32ch;
+    margin-top: 16px;
+  }
+
+  .footer-col h6 {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 0 16px;
+  }
+  .footer-col a,
+  .footer-col p {
+    display: block;
+    font-size: 13.5px;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.72);
+  }
+  .footer-col a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 26px;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 10px;
+  }
+  .footer-social a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+  .li-glyph {
+    font-weight: 800;
+    font-size: 13px;
+  }
+</style>

@@ -1,0 +1,31 @@
+---
+interface Props {
+  name:
+    | 'mark' | 'gnss' | 'total-station' | 'scanner' | 'pointcloud' | 'field'
+    | 'ruler' | 'doc' | 'shield' | 'pin' | 'arrow' | 'chevron' | 'mail'
+    | 'camera' | 'menu' | 'close' | 'wa';
+  size?: number;
+  strokeWidth?: number;
+  class?: string;
+}
+
+const { name, size = 22, strokeWidth = 1.75, class: className = '' } = Astro.props;
+---
+<svg
+  class:list={['icon', className]}
+  width={size}
+  height={size}
+  style={`--icon-stroke:${strokeWidth}`}
+  aria-hidden="true"
+><use href={`#ic-${name}`} /></svg>
+
+<style is:global>
+  .icon {
+    stroke: currentColor;
+    fill: none;
+    stroke-width: var(--icon-stroke, 1.75);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+</style>

@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+import PhaseNotice from '../components/PhaseNotice.astro';
+---
+<Layout
+  title="Contact | Martin Aarts"
+  description="Vraag een offerte aan of neem direct contact op via WhatsApp of e-mail."
+>
+  <section class="page-head">
+    <span class="eyebrow">Contact</span>
+    <h1>Vraag een offerte aan.</h1>
+    <p class="lead">
+      Beschrijf uw project — wij nemen zo snel mogelijk contact met u op.
+      Liever direct schakelen? Stuur ons een bericht via WhatsApp.
+    </p>
+    <div class="contact-ctas">
+      <Button href="https://wa.me/31644708530" variant="primary">WhatsApp ons</Button>
+      <Button href="mailto:info@martinaarts.xyz" variant="outline">E-mail contact</Button>
+    </div>
+  </section>
+  <PhaseNotice phase="Fase 4 — offerteformulier, kaart en volledige contactgegevens" />
+</Layout>
+
+<style>
+  .page-head { padding: 56px var(--gutter) 8px; max-width: 700px; }
+  .page-head h1 { font-size: 46px; margin-top: 12px; }
+  .lead { font-size: 17px; color: var(--color-ink-soft); margin-top: 16px; }
+  .contact-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
+</style>

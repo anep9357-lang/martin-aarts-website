@@ -1,0 +1,24 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PhaseNotice from '../../components/PhaseNotice.astro';
+---
+<Layout
+  title="Projecten | Martin Aarts"
+  description="Een selectie van projecten — van uitdaging tot resultaat."
+>
+  <section class="page-head">
+    <span class="eyebrow">Projecten</span>
+    <h1>Van uitdaging tot resultaat.</h1>
+  </section>
+  <PhaseNotice phase="Fase 3 — filterbaar overzicht + individuele case studies" />
+</Layout>
+
+<style>
+  .page-head {
+    padding: 56px var(--gutter) 8px;
+  }
+  .page-head h1 {
+    font-size: 46px;
+    margin-top: 12px;
+  }
+</style>

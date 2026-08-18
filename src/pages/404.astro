@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+---
+<Layout
+  title="Pagina niet gevonden | Martin Aarts"
+  description="Deze pagina bestaat niet (meer)."
+>
+  <section class="not-found">
+    <span class="eyebrow mono">404</span>
+    <h1>Deze pagina bestaat niet.</h1>
+    <p>Mogelijk is de link verouderd, of is het adres verkeerd getypt.</p>
+    <Button href="/" variant="primary">Terug naar de homepage</Button>
+  </section>
+</Layout>
+
+<style>
+  .not-found {
+    padding: 120px var(--gutter);
+    max-width: 560px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .not-found h1 {
+    font-size: 40px;
+    margin-top: 14px;
+  }
+  .not-found p {
+    color: var(--color-ink-soft);
+    margin: 14px auto 28px;
+  }
+  .eyebrow {
+    justify-content: center;
+  }
+</style>

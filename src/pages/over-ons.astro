@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PhaseNotice from '../components/PhaseNotice.astro';
+---
+<Layout
+  title="Over ons | Martin Aarts"
+  description="Martin Aarts GWW, Agrarisch & Transport Service — landmeetkundige ondersteuning voor GWW-, bouw- en agrarische projecten."
+>
+  <section class="page-head">
+    <span class="eyebrow">Over ons</span>
+    <h1>Techniek in handen van vakmensen.</h1>
+  </section>
+  <PhaseNotice phase="Fase 3 — wacht op echte bedrijfsgeschiedenis, cijfers en (optioneel) teamfoto's" />
+</Layout>
+
+<style>
+  .page-head { padding: 56px var(--gutter) 8px; max-width: 760px; }
+  .page-head h1 { font-size: 46px; margin-top: 12px; }
+</style>
