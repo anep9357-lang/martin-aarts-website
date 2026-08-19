@@ -1,0 +1,216 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.astro';
+import Icon from '../../components/Icon.astro';
+import PhotoFrame from '../../components/PhotoFrame.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { projects } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+
+const beatHeadings: Record<string, string> = {
+  Uitdaging: 'Het vraagstuk van<br />de opdrachtgever',
+  Meting: 'Wat er precies<br />gemeten is',
+  Technologie: 'Apparatuur &amp;<br />methodiek',
+  Resultaat: 'Wat er is<br />opgeleverd',
+};
+
+const related = projects.filter((p) => p.slug !== project.slug).slice(0, 3);
+---
+<Layout
+  title={`${project.title} | Martin Aarts`}
+  description={`Case study: ${project.title} — van uitdaging tot resultaat.`}
+>
+  <div class="breadcrumb mono">
+    <a href="/">Home</a> / <a href="/projecten">Projecten</a> / <span>{project.title}</span>
+  </div>
+
+  <section class="p-hero">
+    <div class="p-tags">
+      {project.tags.map((t) => <span class="p-tag">{t}</span>)}
+    </div>
+    <h1>{project.title}</h1>
+    <div class="p-hero-meta">
+      <div class="p-hero-meta-item"><span class="k mono">Opdrachtgever</span><span class="v tbc">{project.meta.opdrachtgever}</span></div>
+      <div class="p-hero-meta-item"><span class="k mono">Locatie</span><span class="v tbc">{project.meta.locatie}</span></div>
+      <div class="p-hero-meta-item"><span class="k mono">Dienst</span><span class="v">{project.meta.dienst}</span></div>
+      <div class="p-hero-meta-item"><span class="k mono">Duur</span><span class="v tbc">{project.meta.duur}</span></div>
+    </div>
+  </section>
+
+  <div class="p-cover">
+    <PhotoFrame
+      src={project.coverImage}
+      alt={project.title}
+      placeholderLabel={`Echte coverfoto — ${project.title}`}
+      aspectRatio="21 / 9"
+      priority
+    />
+  </div>
+
+  <div class="narrative">
+    <div class="rail"></div>
+
+    {project.beats.map((beat, i) => (
+      <div class="beat">
+        <div class="beat-label"><span class="beat-dot"></span><span class="mono">{String(i + 1).padStart(2, '0')}</span></div>
+        <div class="beat-body">
+          <span class="eyebrow">{beat.label}</span>
+          <h2 set:html={beatHeadings[beat.label]} />
+          <p class:list={{ tbc: beat.text === 'GEGEVEN NOG TE BEVESTIGEN' }}>{beat.text}</p>
+
+          {beat.label === 'Meting' && project.metingPhotos && (
+            <div class="beat-media">
+              {project.metingPhotos.map((src) => (
+                <PhotoFrame src={src} alt={`Meting — ${project.title}`} aspectRatio="4 / 3" />
+              ))}
+              {project.metingPhotos.length < 2 && (
+                <PhotoFrame alt="" placeholderLabel="Echte foto volgt" aspectRatio="4 / 3" />
+              )}
+            </div>
+          )}
+
+          {beat.label === 'Technologie' && (
+            <div class="spec-grid">
+              <div class="spec"><div class="k mono">Apparatuur</div><div class="v tbc">{project.specs.apparatuur}</div></div>
+              <div class="spec"><div class="k mono">Coördinatensysteem</div><div class="v">{project.specs.coordinatensysteem}</div></div>
+              <div class="spec"><div class="k mono">Nauwkeurigheid</div><div class="v tbc">{project.specs.nauwkeurigheid}</div></div>
+            </div>
+          )}
+
+          {beat.label === 'Resultaat' && (
+            <>
+              <div class="result-stats">
+                <div class="result-stat"><div class="num tbc">{project.result.meetpunten}</div><div class="lbl">meetpunten verwerkt</div></div>
+                <div class="result-stat"><div class="num tbc">{project.result.dagen}</div><div class="lbl">dagen doorlooptijd</div></div>
+                <div class="result-stat"><div class="num tbc">{project.result.reviseringen}</div><div class="lbl">reviseringen achteraf</div></div>
+              </div>
+              <div class="deliverables">
+                {project.deliverables.map((d) => (
+                  <span class="deliv-chip"><Icon name={d.icon} size={16} />{d.label}</span>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {related.length > 0 && (
+    <div class="related">
+      <span class="eyebrow">Bekijk ook</span>
+      <h2>Vergelijkbare projecten</h2>
+      <div class="proj-grid">
+        {related.map((p) => <ProjectCard project={p} />)}
+      </div>
+    </div>
+  )}
+
+  <div class="ctaband">
+    <span class="eyebrow" style="justify-content:center;">Vergelijkbaar project?</span>
+    <h2>Vraag een offerte aan.</h2>
+    <Button href="/contact" variant="accent">Offerte aanvragen</Button>
+  </div>
+</Layout>
+
+<style>
+  .breadcrumb {
+    padding: 22px var(--gutter) 0;
+    font-size: 12px;
+    color: var(--color-ink-faint);
+  }
+  .breadcrumb a:hover { color: var(--color-accent); }
+  .breadcrumb span { color: var(--color-ink); }
+
+  .p-hero { padding: 36px var(--gutter) 0; }
+  .p-tags { display: flex; gap: 8px; margin-bottom: 18px; }
+  .p-tag {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: var(--radius-full);
+    background: var(--color-surface-muted);
+    color: var(--color-ink);
+  }
+  .p-hero h1 { font-size: 52px; max-width: 20ch; }
+  .p-hero-meta {
+    display: flex;
+    gap: 40px;
+    margin-top: 26px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--color-line);
+    flex-wrap: wrap;
+  }
+  .p-hero-meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .p-hero-meta-item .k { font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-ink-faint); }
+  .p-hero-meta-item .v { font-weight: 700; font-size: 14.5px; }
+  .p-hero-meta-item .v.tbc { font-weight: 400; font-size: 9.5px; }
+
+  .p-cover { margin: 36px var(--gutter) 0; }
+
+  .narrative { padding: 96px var(--gutter); position: relative; }
+  .rail { position: absolute; left: calc(var(--gutter) + 130px); top: 96px; bottom: 96px; width: 1px; background: var(--color-line); }
+  .beat { display: grid; grid-template-columns: 130px 1fr; gap: 0; position: relative; padding-bottom: 80px; }
+  .beat:last-child { padding-bottom: 0; }
+  .beat-label { position: relative; }
+  .beat-dot {
+    position: absolute; left: 126px; top: 6px; width: 9px; height: 9px; border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 0 5px var(--color-paper), 0 0 0 6px var(--color-line);
+  }
+  .beat-label .mono { font-size: 11px; letter-spacing: 0.06em; color: var(--color-ink-faint); text-transform: uppercase; }
+  .beat-body { padding-left: 56px; }
+  .beat-body h2 { font-size: 36px; margin: 12px 0 16px; }
+  .beat-body p { font-size: 15.5px; color: var(--color-ink-soft); line-height: 1.75; max-width: 66ch; margin: 0 0 24px; }
+  .beat-body p.tbc { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-ink-soft); }
+
+  .beat-media { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; max-width: 640px; }
+
+  .spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--color-line); border: 1px solid var(--color-line); margin-top: 8px; max-width: 640px; }
+  .spec { background: var(--color-surface); padding: 16px 18px; }
+  .spec .k { font-size: 10px; letter-spacing: 0.05em; color: var(--color-ink-faint); text-transform: uppercase; }
+  .spec .v { font-weight: 700; font-size: 15px; margin-top: 4px; }
+  .spec .v.tbc { font-family: var(--font-mono); font-weight: 400; font-size: 9.5px; }
+
+  .result-stats { display: flex; gap: 1px; background: var(--color-line); border: 1px solid var(--color-line); margin-top: 8px; max-width: 640px; }
+  .result-stat { flex: 1; background: var(--color-surface); padding: 20px; }
+  .result-stat .num { font-family: var(--font-display); font-weight: 800; font-size: 30px; }
+  .result-stat .num.tbc { font-family: var(--font-mono); font-weight: 400; font-size: 9.5px; line-height: 1.5; background: none; padding: 0; display: block; }
+  .result-stat .lbl { font-size: 12px; color: var(--color-ink-soft); margin-top: 4px; }
+
+  .deliverables { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+  .deliv-chip {
+    display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600;
+    padding: 9px 16px; border-radius: var(--radius-full); border: 1.5px solid var(--color-line);
+  }
+  .deliv-chip :global(svg) { color: var(--color-accent); }
+
+  .related { background: var(--color-paper); padding: 0 var(--gutter) 80px; }
+  .related .eyebrow { margin-bottom: 14px; }
+  .related h2 { color: var(--color-ink); font-size: 32px; margin-bottom: 32px; }
+  .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+
+  .ctaband { background: var(--color-ink); color: #fff; padding: 64px var(--gutter); text-align: center; }
+  .ctaband h2 { color: #fff; font-size: 36px; margin: 14px 0 22px; }
+
+  @media (max-width: 900px) {
+    .p-hero h1 { font-size: 34px; }
+    .rail { display: none; }
+    .beat { grid-template-columns: 1fr; }
+    .beat-body { padding-left: 0; margin-top: 12px; }
+    .beat-media { grid-template-columns: 1fr; }
+    .spec-grid { grid-template-columns: 1fr; }
+    .result-stats { flex-direction: column; }
+    .proj-grid { grid-template-columns: 1fr; }
+  }
+</style>

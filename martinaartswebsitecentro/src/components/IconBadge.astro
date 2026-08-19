@@ -1,0 +1,31 @@
+---
+// Het kleine grafiet-cirkel-met-oranje-icoon-accent — het middel waarmee
+// een overwegend lichte sectie toch een vleugje grafiet + oranje krijgt,
+// zonder de hele sectie donker te maken.
+import Icon from './Icon.astro';
+import type { ComponentProps } from 'astro/types';
+
+interface Props {
+  icon: ComponentProps<typeof Icon>['name'];
+  size?: number;
+}
+
+const { icon, size = 44 } = Astro.props;
+---
+<div class="icon-badge" style={`--badge-size:${size}px`}>
+  <Icon name={icon} size={Math.round(size * 0.45)} />
+</div>
+
+<style>
+  .icon-badge {
+    width: var(--badge-size);
+    height: var(--badge-size);
+    border-radius: 50%;
+    background: var(--color-ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+</style>

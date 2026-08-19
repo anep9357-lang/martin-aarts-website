@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+import IconBadge from '../components/IconBadge.astro';
+import PhotoFrame from '../components/PhotoFrame.astro';
+import { equipment } from '../data/equipment';
+---
+<Layout
+  title="Apparatuur | Martin Aarts"
+  description="De instrumenten waarmee Martin Aarts meet en uitzet: GNSS, robotgestuurd uitzetten, 3D-laserscanning en digitaal waterpassen."
+>
+  <section class="page-head">
+    <span class="eyebrow">Apparatuur</span>
+    <h1>Instrumenten die het verschil maken.</h1>
+    <p class="lead">Moderne apparatuur alleen is niet genoeg — het gaat om wie ermee werkt. Hieronder de instrumenten die wij dagelijks inzetten, en waarvoor.</p>
+  </section>
+
+  <section class="equip-list">
+    {equipment.map((eq, i) => (
+      <div class="equip-row" style={i % 2 === 1 ? 'direction:rtl' : ''}>
+        <div class="equip-photo" style={i % 2 === 1 ? 'direction:ltr' : ''}>
+          <PhotoFrame src={eq.image} alt={eq.title} placeholderLabel={`Echte foto — ${eq.title}`} aspectRatio="4 / 3" />
+        </div>
+        <div class="equip-body" style={i % 2 === 1 ? 'direction:ltr' : ''}>
+          <IconBadge icon={eq.icon} size={48} />
+          <h2>{eq.title}</h2>
+          <p class="equip-desc">{eq.longDescription}</p>
+          <span class="eyebrow" style="margin-top:8px;">Toepassingen</span>
+          <ul class="use-cases">
+            {eq.useCases.map((u) => <li>{u}</li>)}
+          </ul>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <div class="ctaband">
+    <span class="eyebrow" style="justify-content:center;">Vraag met vertrouwen</span>
+    <h2>Benieuwd welke apparatuur<br />uw project nodig heeft?</h2>
+    <Button href="/contact" variant="accent">Offerte aanvragen</Button>
+  </div>
+</Layout>
+
+<style>
+  .page-head {
+    padding: 56px var(--gutter) 40px;
+    max-width: 760px;
+  }
+  .page-head h1 {
+    font-size: 46px;
+    margin-top: 12px;
+  }
+  .lead {
+    font-size: 17px;
+    color: var(--color-ink-soft);
+    margin: 18px 0 0;
+  }
+
+  .equip-list {
+    padding: 0 var(--gutter) 88px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+  .equip-row {
+    display: grid;
+    grid-template-columns: 0.46fr 0.54fr;
+    gap: 56px;
+    align-items: center;
+    padding-bottom: 64px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .equip-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .equip-body h2 {
+    font-size: 32px;
+    margin: 18px 0 14px;
+  }
+  .equip-desc {
+    font-size: 15.5px;
+    color: var(--color-ink-soft);
+    line-height: 1.7;
+    max-width: 52ch;
+  }
+  .use-cases {
+    list-style: none;
+    margin: 14px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .use-cases li {
+    font-size: 14px;
+    color: var(--color-ink-soft);
+    padding-left: 18px;
+    position: relative;
+  }
+  .use-cases li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 1.5px;
+    background: var(--color-accent);
+  }
+
+  .ctaband {
+    background: var(--color-ink);
+    color: #fff;
+    padding: 64px var(--gutter);
+    text-align: center;
+  }
+  .ctaband h2 {
+    color: #fff;
+    font-size: 36px;
+    margin: 14px 0 22px;
+  }
+
+  @media (max-width: 900px) {
+    .equip-row {
+      grid-template-columns: 1fr;
+      direction: ltr !important;
+    }
+    .page-head h1 {
+      font-size: 34px;
+    }
+  }
+</style>
