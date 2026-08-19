@@ -1,0 +1,80 @@
+---
+// Knop-component. LET OP contrast (zie StyleGuide-canvas): een vlak in
+// --color-accent (oranje) krijgt altijd donkere tekst — wit-op-oranje
+// haalt maar 2.5:1 en zakt voor WCAG AA. Daarom is "accent" hieronder
+// donkere tekst, nooit wit.
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'outline' | 'accent' | 'outline-on-dark';
+  icon?: 'arrow' | 'chevron';
+  class?: string;
+  target?: string;
+  rel?: string;
+}
+
+const { href, variant = 'primary', icon, class: className = '', target, rel } = Astro.props;
+const Tag = href ? 'a' : 'button';
+---
+<Tag href={href} target={target} rel={rel} class:list={['btn', `btn-${variant}`, className]}>
+  <slot />
+  {icon && <span class="btn-icon" aria-hidden="true">{icon === 'arrow' ? '→' : '⌄'}</span>}
+</Tag>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 22px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 14.5px;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .btn-primary {
+    background: var(--color-ink);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: var(--color-accent);
+    color: var(--color-ink);
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--color-ink);
+    color: var(--color-ink);
+  }
+  .btn-outline:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  /* voor gebruik op een donkere achtergrond (CTA-band, footer) */
+  .btn-outline-on-dark {
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+  }
+  .btn-outline-on-dark:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  /* oranje vlak — tekst altijd donker, zie opmerking bovenaan */
+  .btn-accent {
+    background: var(--color-accent);
+    color: var(--color-ink);
+  }
+  .btn-accent:hover {
+    background: var(--color-accent-hover);
+  }
+
+  .btn-icon {
+    font-size: 15px;
+  }
+</style>

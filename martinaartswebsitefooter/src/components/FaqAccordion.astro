@@ -1,0 +1,84 @@
+---
+import Icon from './Icon.astro';
+
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  items: FaqItem[];
+}
+
+const { items } = Astro.props;
+---
+<div class="faq-list">
+  {items.map((item) => (
+    <div class="faq-item">
+      <button class="faq-row" type="button" aria-expanded="false">
+        <h3>{item.q}</h3>
+        <Icon name="chevron" size={19} class="faq-chevron" />
+      </button>
+      <div class="faq-answer" hidden>
+        <p>{item.a}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.faq-row').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const answer = btn.nextElementSibling as HTMLElement | null;
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      btn.classList.toggle('is-open', !isOpen);
+      if (answer) answer.hidden = isOpen;
+    });
+  });
+</script>
+
+<style>
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 820px;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--color-line);
+  }
+  .faq-row {
+    width: 100%;
+    padding: 22px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+  .faq-row h3 {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 16.5px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .faq-row :global(.faq-chevron) {
+    color: var(--color-accent);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .faq-row.is-open :global(.faq-chevron) {
+    transform: rotate(180deg);
+  }
+  .faq-answer p {
+    margin: 0 0 22px;
+    font-size: 14.5px;
+    color: var(--color-ink-soft);
+    line-height: 1.7;
+    max-width: 66ch;
+  }
+</style>
