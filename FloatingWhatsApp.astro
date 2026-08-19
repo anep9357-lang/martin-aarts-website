@@ -1,0 +1,40 @@
+---
+import Icon from './Icon.astro';
+---
+<a
+  class="floating-wa"
+  href="https://wa.me/31644708530?text=Hallo%20Martin%2C%20ik%20wil%20graag%20een%20vrijblijvende%20offerte%20aanvragen%20voor%20een%20project."
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Stuur een bericht via WhatsApp"
+>
+  <Icon name="wa" size={26} />
+</a>
+
+<style>
+  .floating-wa {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    .floating-wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--color-whatsapp);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(26, 26, 26, 0.3);
+      z-index: 50;
+    }
+    .floating-wa:hover {
+      color: #fff;
+      opacity: 0.92;
+    }
+  }
+</style>
