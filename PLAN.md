@@ -208,6 +208,58 @@ AI-zoekresultaat overgenomen — expliciet nagevraagd en bevestigd):
   door een herkenbare ballon-met-telefoon-vorm (nu overal consistent:
   header, footer, contactpagina, want alle drie lezen uit dezelfde
   `ic-wa`-sprite-definitie).
+- **Echte bugfix achter de "centrering werkt niet"-melding:** de
+  centrering van `.footer-tagline` en `.footer-credit` (beide `<p>`-
+  tags) werd overschreven door de globale regel `p { max-width: 65ch }`
+  in `base.css`. Een `<p>` zonder expliciete breedte krimpt mee tot die
+  65ch, en blijft daarbinnen links uitgelijnd tenzij er ook
+  `margin: 0 auto` bij staat — `text-align: center` centreert dan alleen
+  de tekst binnen die te smalle, niet-gecentreerde doos. Opgelost met
+  `max-width: none` op beide klassen.
+- Apparatuurteksten bijgewerkt met de echte technische omschrijvingen
+  die de klant vanaf de huidige live site heeft aangeleverd (Claude kan
+  martinaarts.xyz niet rechtstreeks bereiken — egress geblokkeerd in
+  deze sessie). Alle 5 instrumenten in `src/data/equipment.ts` hebben
+  nu de originele technische taal (RTK, hoogtebepaling, stuurlijnen,
+  heipaalpunten, nivelleerwerk, zettingsmetingen, BIM/clash-detectie
+  enz.), licht herschreven voor leesbaarheid maar inhoudelijk gelijk.
+
+**CRO/UX-verbeteringen naar aanleiding van een externe site-audit door de klant:**
+- Alle WhatsApp-links (header, footer, homepage, FAQ, contactpagina)
+  openen nu met een vooraf ingevulde tekst: "Hallo Martin, ik wil graag
+  een vrijblijvende offerte aanvragen voor een project." — verlaagt de
+  drempel voor mobiele bezoekers.
+- E-mail- en WhatsApp-kaarten op de contactpagina zijn nu volledig
+  klikbaar (waren alleen leesbare tekst).
+- Offerteformulier heeft nu een optioneel bijlage-veld (situatieschets,
+  PDF, foto's, CAD-bestand) — verzendt mee via dezelfde Formspree-koppeling.
+- Nieuwe `FloatingWhatsApp`-component: een vast WhatsApp-knopje rechts-
+  onder in beeld, alleen zichtbaar op mobiel (≤900px), op elke pagina.
+- **Performance:** alle 45 foto's zijn nu ook als WebP aangeleverd
+  naast het origineel; `PhotoFrame.astro` serveert via `<picture>`
+  automatisch WebP aan browsers die het ondersteunen (vrijwel alle
+  moderne browsers) met de JPEG als fallback. ~17% kleinere
+  bestanden zonder zichtbaar kwaliteitsverlies — sneller laden op 4G/5G
+  in het veld.
+
+**Nog open uit dezelfde audit (bewust niet zomaar ingevuld):**
+- Werkgebied, aantal afgeronde projecten, reactietermijn en de
+  Uitdaging/Resultaat-teksten per project blijven GEGEVEN NOG TE
+  BEVESTIGEN — dit zijn echte bedrijfsgegevens, geen technische keuze.
+- Testimonials/klantcitaten en een balk met partner-/softwarelogo's
+  (Leica, Trimble, AutoCAD e.d.) zijn NIET toegevoegd — nooit een
+  citaat of samenwerking verzinnen; alleen toevoegen na bevestiging
+  door de klant welke merken/software daadwerkelijk gebruikt worden.
+- Specifieke leverformaten per dienst (bijv. "DWG/DXF, LandXML,
+  LAS/E57") zijn nog niet hardgecodeerd — moet eerst bevestigd worden
+  welke formaten daadwerkelijk standaard geleverd worden.
+- Netlify → eigen-domein-redirect (netlify.app → www.martinaarts.xyz)
+  bewust nog NIET toegevoegd: dit zou de site nu juist breken, omdat
+  het eigen domein nog niet is aangesloten. Toevoegen zodra de DNS-stap
+  bij mijndomein is afgerond.
+- Google Business Profile-koppeling en SEO-metatekst met regionale
+  plaatsnamen (bijv. "Landmeter West-Brabant") vereisen eerst het
+  echte werkgebied — zie hierboven.
 
 **Hosting/lancering:**
 - `netlify.toml` toegevoegd — kant-en-klare deployconfiguratie
