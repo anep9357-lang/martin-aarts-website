@@ -285,12 +285,47 @@ AI-zoekresultaat overgenomen — expliciet nagevraagd en bevestigd):
 ## Open datapunten (uit Fase 0 — nog steeds openstaand)
 
 Zie de gepubliceerde fotolijst voor de volledige tabel. Kort:
-aantal projecten afgerond (levenslange teller, niet de portfolio),
-werkgebied, reactietermijn, openingstijden, telefoon (indien anders
-dan WhatsApp), certificeringen, klantgegevens per projectcase, hosting
-van het huidige domein, BTW-nummer.
+openingstijden, telefoon (indien anders dan WhatsApp), certificeringen,
+klantgegevens per projectcase, hosting van het huidige domein,
+BTW-nummer, exacte meetnauwkeurigheid per project/methode, technologie
+voor 2 specifieke cases (funderingsuitzetting technische cabine,
+kruispuntherinrichting).
 
-✅ Bevestigd: actief sinds 2017, KVK-nummer 69194963 (zie hierboven).
+✅ Bevestigd: actief sinds 2017, KVK-nummer 69194963, werkgebied
+(Rotterdam/Breda/Tilburg + ca. 1 uur rijden vanaf Oudenbosch),
+reactietermijn (binnen 24 uur), meetapparatuur 100% Trimble,
+ontwerpsoftware AutoCAD (DWG/DXF/LandXML) — allemaal verwerkt op
+homepage, over-ons, contact, FAQ, apparatuurpagina en projectdata.
+
+**Bewust weggelaten in plaats van uitgesteld:** "aantal projecten
+afgerond" als statistiek op de homepage — de klant gaf aan dit niet te
+kunnen/willen specificeren, dus is de trust-bar-stat vervangen door
+een bevestigd gegeven ("Trimble" / apparatuur) in plaats van een
+permanente placeholder te tonen.
+
+**Nieuwe fotoronde (19 aug):** klant uploadde 55 foto's naar GitHub.
+Het grootste deel bleek een herupload van al gebruikte apparatuur- en
+projectfoto's (bv. de 5 "product"-foto's kwamen exact overeen met de
+bestaande apparatuurfoto's — geen vervanging nodig, apparatuur was al
+authentiek Trimble-materiaal). Wel nieuw en toegevoegd:
+- Een portretfoto van Martin zelf met GNSS-apparatuur → nu de hero-foto
+  op de Over ons-pagina (was eerder een generieke veldfoto).
+- Een close-up met zichtbaar Martin Aarts-bedrijfslogo op de jas tijdens
+  kabelput-inmeting → nu de omslagfoto van het project "Inmeten
+  ondergrondse infrastructuur" (was een overzichtsfoto zonder eigen
+  branding).
+- Een hogere-resolutie bronversie van het bedrijfslogo → gebruikt om
+  alle logo- en favicon-bestanden opnieuw te genereren op hogere
+  kwaliteit.
+- 4 extra foto's van het funderings-/hijswerk bij de technische cabine
+  op het haventerrein → toegevoegd aan project "techniek-fundering".
+- Een nieuw, duidelijk herkenbaar project: inmeting van een sportcomplex
+  met atletiekbaan en basketbalveld (RTK-GPS) → nieuw projectitem
+  "sportcomplex-atletiekbaan" toegevoegd, 5 foto's.
+- De twee specifieke actiefoto's die de klant per chat beschreef (GNSS-
+  rover op zanderig terrein met windturbines; basisstation op een
+  verroeste constructie) zaten niet in deze upload — nog te bevestigen
+  of deze apart geüpload moeten worden.
 
 ## Bekende technische keuzes, nog te bevestigen
 

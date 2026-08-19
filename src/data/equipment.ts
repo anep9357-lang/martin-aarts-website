@@ -1,6 +1,6 @@
 // Apparatuurdata — gedeeld tussen de homepage-strip en de volledige
-// Apparatuur-pagina. Merken/modelnummers zijn hier bewust weggelaten
-// tenzij expliciet bevestigd door de klant — zie PLAN.md.
+// Apparatuur-pagina. Alle meetapparatuur is van Trimble (bevestigd door
+// de klant) — zie PLAN.md.
 
 export interface Equipment {
   slug: string;
@@ -19,7 +19,7 @@ export const equipment: Equipment[] = [
     title: 'Landmeetsysteem',
     description: 'Positionering & dagelijkse maatvoering',
     longDescription:
-      'Het rondtrekkende systeem waarmee dagelijks wordt gemeten en uitgezet — de basis voor vrijwel elke meting op locatie.',
+      'Het rondtrekkende Trimble-systeem waarmee dagelijks wordt gemeten en uitgezet — de basis voor vrijwel elke meting op locatie.',
     useCases: ['Dagelijkse maatvoering', 'Uitzetwerk', 'Controlemetingen'],
     image: '/images/equipment/equip-landmeetsysteem.jpg',
   },
@@ -29,7 +29,7 @@ export const equipment: Equipment[] = [
     title: 'GPS-basisstation',
     description: 'Vast referentiepunt op het project',
     longDescription:
-      'Een vast opgesteld GNSS-basisstation dat als referentiepunt dient, zodat alle metingen op het project herleidbaar zijn tot hetzelfde coördinatensysteem.',
+      'Een vast opgesteld Trimble GNSS-basisstation dat als referentiepunt dient, zodat alle metingen op het project herleidbaar zijn tot hetzelfde coördinatensysteem.',
     useCases: ['RTK-correctie op locatie', 'Referentiepunt voor het hele project', 'Herhaalbare metingen'],
     image: '/images/equipment/equip-gps-basisstation.jpg',
   },
@@ -39,7 +39,7 @@ export const equipment: Equipment[] = [
     title: '3D-laserscanner',
     description: 'Miljoenen meetpunten X, Y, Z',
     longDescription:
-      'Legt een bestaande situatie vast als dichte puntenwolk — miljoenen meetpunten per scan, bruikbaar als basis voor BIM, renovatie of volumeberekening.',
+      'De Trimble 3D-laserscanner legt een bestaande situatie vast als dichte puntenwolk — miljoenen meetpunten per scan, bruikbaar als basis voor BIM, renovatie of volumeberekening.',
     useCases: ['Puntenwolken van bestaande situaties', 'Clash-detectie', 'Volumebepaling'],
     image: '/images/equipment/equip-3d-scanner-detail.jpg',
   },
@@ -49,7 +49,7 @@ export const equipment: Equipment[] = [
     title: 'Robotgestuurd uitzetten',
     description: '12–16× sneller dan handmatig',
     longDescription:
-      'Een robotgestuurde total station die automatisch de prisma volgt, waardoor één persoon zelfstandig en aanzienlijk sneller kan uitzetten dan met een handmatig systeem.',
+      'Een robotgestuurde Trimble total station die automatisch de prisma volgt, waardoor één persoon zelfstandig en aanzienlijk sneller kan uitzetten dan met een handmatig systeem.',
     useCases: ['Uitzetten van assen en rooilijnen', 'Funderingspunten', 'Grote terreinen'],
     image: '/images/equipment/equip-robot-plotter-pad.jpg',
   },
@@ -59,7 +59,7 @@ export const equipment: Equipment[] = [
     title: 'Digitale waterpas',
     description: 'Nauwkeurige hoogtemetingen',
     longDescription:
-      'Voor hoogtemetingen waar net iets meer nauwkeurigheid nodig is dan GNSS alleen kan bieden — digitaal afgelezen, minder foutgevoelig dan een optisch waterpasinstrument.',
+      'Een digitale Trimble waterpas voor hoogtemetingen waar net iets meer nauwkeurigheid nodig is dan GNSS alleen kan bieden — digitaal afgelezen, minder foutgevoelig dan een optisch waterpasinstrument.',
     useCases: ['Hoogtemetingen', 'Waterpassen van funderingen', 'Drainage- en afschotcontrole'],
     image: '/images/equipment/equip-digitale-waterpas.jpg',
   },

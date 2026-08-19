@@ -50,23 +50,27 @@ const miniFaq = [
         <div class="field"><label for="f-location">Locatie project</label><input id="f-location" name="locatie" type="text" placeholder="Plaats / adres" /></div>
         <div class="field"><label for="f-period">Gewenste periode</label><input id="f-period" name="periode" type="text" placeholder="Bijv. binnen 2 weken" /></div>
       </div>
-      <div class="field full" style="margin-bottom:8px;">
+      <div class="field full" style="margin-bottom:20px;">
         <label for="f-message">Omschrijving van het project</label>
         <textarea id="f-message" name="bericht" placeholder="Vertel kort over uw project, de situatie en wat u nodig heeft..." required></textarea>
+      </div>
+      <div class="field full" style="margin-bottom:8px;">
+        <label for="f-files">Bijlage <span class="hint">(optioneel — situatieschets, PDF, foto's, CAD-bestand)</span></label>
+        <input id="f-files" name="bijlage" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.dwg,.dxf" />
       </div>
       <label class="consent">
         <input type="checkbox" name="privacy_akkoord" required />
         <span>Ik ga akkoord met de <a href="/privacyverklaring">privacyverklaring</a>.</span>
       </label>
       <button type="submit" class="btn btn-primary form-submit">Offerte aanvragen</button>
-      <p class="form-note">Reactietermijn: <span class="mono tbc">GEGEVEN NOG TE BEVESTIGEN</span>.</p>
+      <p class="form-note">Reactietermijn: <span class="mono">binnen 24 uur</span>.</p>
       <p class="form-status" id="form-status" role="status" hidden></p>
     </form>
 
     <div>
       <div class="side">
-        <div class="side-item"><Icon name="mail" size={22} /><div><h4>E-mail</h4><p>info@martinaarts.xyz</p></div></div>
-        <div class="side-item dark"><Icon name="wa" size={22} /><div><h4>WhatsApp — snelste reactie</h4><p>+31 6 44 70 85 30</p></div></div>
+        <a class="side-item" href="mailto:info@martinaarts.xyz"><Icon name="mail" size={22} /><div><h4>E-mail</h4><p>info@martinaarts.xyz</p></div></a>
+        <a class="side-item dark" href="https://wa.me/31644708530?text=Hallo%20Martin%2C%20ik%20wil%20graag%20een%20vrijblijvende%20offerte%20aanvragen%20voor%20een%20project." target="_blank" rel="noopener noreferrer"><Icon name="wa" size={22} /><div><h4>WhatsApp — snelste reactie</h4><p>+31 6 44 70 85 30</p></div></a>
         <div class="side-item"><Icon name="pin" size={22} /><div><h4>Adres</h4><p>Lisdodde 5<br />4731 WP Oudenbosch</p></div></div>
         <div class="side-item"><Icon name="clock" size={22} /><div><h4>Bereikbaarheid</h4><p class="mono tbc" style="font-size:11px;">GEGEVEN NOG TE BEVESTIGEN</p></div></div>
       </div>

@@ -14,7 +14,7 @@ import { equipment } from '../data/equipment';
 const faqItems = [
   { q: 'Hoe lang duurt een meting gemiddeld?', a: 'Dat hangt af van de omvang van het project — bij de offerte geven wij altijd een concrete inschatting voor uw situatie.' },
   { q: 'Welk bestandsformaat ontvang ik na afloop?', a: 'Dat stemmen wij vooraf met u af — denk aan CAD-tekeningen, puntenbestanden of een PDF-rapport, afhankelijk van de dienst.' },
-  { q: 'Werken jullie ook buiten het vaste werkgebied?', a: 'GEGEVEN NOG TE BEVESTIGEN — vraag dit gerust na bij het aanvragen van een offerte.' },
+  { q: 'Werken jullie ook buiten het vaste werkgebied?', a: 'Ons vaste werkgebied omvat de regio\'s Rotterdam, Breda en Tilburg, plus locaties tot circa 1 uur rijden vanaf Oudenbosch. Ligt uw project verder weg? Vraag het gerust na bij uw offerteaanvraag.' },
 ];
 ---
 <Layout
@@ -33,7 +33,7 @@ const faqItems = [
           <Button href="/projecten" variant="outline">Bekijk projecten</Button>
         </div>
         <div class="hero-meta">
-          <div class="hero-meta-item"><Icon name="pin" size={17} /> Werkgebied: <span class="tbc mono">GEGEVEN NOG TE BEVESTIGEN</span></div>
+          <div class="hero-meta-item"><Icon name="pin" size={17} /> Werkgebied: <span class="mono">Rotterdam · Breda · Tilburg e.o.</span></div>
           <div class="hero-meta-item"><Icon name="shield" size={17} /> Actief sinds <span class="mono">2017</span></div>
         </div>
       </div>
@@ -52,7 +52,7 @@ const faqItems = [
   <!-- TRUST BAR -->
   <div class="trustbar">
     <div class="trust-item"><div class="trust-num">2017</div><div class="trust-lbl">actief sinds</div></div>
-    <div class="trust-item"><div class="trust-num tbc mono">GEGEVEN NOG TE BEVESTIGEN</div><div class="trust-lbl">projecten afgerond</div></div>
+    <div class="trust-item"><div class="trust-num">Trimble</div><div class="trust-lbl">apparatuur</div></div>
     <div class="trust-item"><div class="trust-num">7</div><div class="trust-lbl">gespecialiseerde diensten</div></div>
     <div class="trust-item"><div class="trust-num">RTK</div><div class="trust-lbl">GPS · Total Station · 3D-scanning</div></div>
   </div>
@@ -152,10 +152,10 @@ const faqItems = [
   <div class="ctaband">
     <span class="eyebrow" style="justify-content:center;">Klaar om te starten?</span>
     <h2>Vraag vandaag nog een<br />vrijblijvende offerte aan.</h2>
-    <p>Stuur uw projectgegevens door — reactietermijn: <span class="tbc mono">GEGEVEN NOG TE BEVESTIGEN</span>.</p>
+    <p>Stuur uw projectgegevens door — reactietermijn: <span class="mono">binnen 24 uur</span>.</p>
     <div class="hero-ctas" style="justify-content:center;">
       <Button href="/contact" variant="accent">Offerte aanvragen</Button>
-      <Button href="https://wa.me/31644708530" variant="outline-on-dark">WhatsApp ons</Button>
+      <Button href="https://wa.me/31644708530?text=Hallo%20Martin%2C%20ik%20wil%20graag%20een%20vrijblijvende%20offerte%20aanvragen%20voor%20een%20project." target="_blank" rel="noopener noreferrer" variant="outline-on-dark">WhatsApp ons</Button>
     </div>
   </div>
 </Layout>

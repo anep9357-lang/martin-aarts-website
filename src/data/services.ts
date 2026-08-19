@@ -121,11 +121,11 @@ export const services: Service[] = [
     icon: 'doc',
     title: 'Projectontwerp & tekenwerk',
     summary:
-      'Van meetdata naar bruikbaar ontwerp — CAD-tekenwerk, projectontwerp voor GWW- en bouwprojecten en uitzetplannen, door dezelfde hand die ook het veldwerk doet.',
+      'Van meetdata naar bruikbaar ontwerp — AutoCAD-tekenwerk, projectontwerp voor GWW- en bouwprojecten en uitzetplannen, door dezelfde hand die ook het veldwerk doet.',
     sectors: ['GWW', 'Bouw', 'Aannemers'],
     steps: [
       { title: 'Meetdata als basis', description: 'Het ontwerp start vanuit de eigen inmeting, zodat tekening en werkelijke situatie altijd overeenkomen.' },
-      { title: 'CAD-tekenwerk', description: 'Plattegronden, profielen en secties worden uitgewerkt in CAD.' },
+      { title: 'AutoCAD-tekenwerk', description: 'Plattegronden, profielen en secties worden uitgewerkt in AutoCAD, leverbaar als DWG, DXF of LandXML.' },
       { title: 'Projectontwerp', description: 'Voor GWW- en bouwprojecten wordt de technische oplossing zelf ontworpen, niet alleen getekend.' },
       { title: 'Uitzetplan', description: 'Het ontwerp wordt vertaald naar een uitzetplan, klaar om zelf in het veld te realiseren.' },
     ],

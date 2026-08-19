@@ -50,8 +50,8 @@ export const projects: Project[] = [
     slug: 'ondergrondse-infrastructuur',
     title: 'Inmeten ondergrondse infrastructuur',
     tags: ['As-built', 'GWW'],
-    image: '/images/gallery/kabelput-klinkers-overzicht.jpg',
-    coverImage: '/images/gallery/kabelput-klinkers-overzicht.jpg',
+    image: '/images/gallery/kabelput-branded-detail.jpg',
+    coverImage: '/images/gallery/kabelput-branded-detail.jpg',
     meta: { opdrachtgever: TBC, locatie: TBC, dienst: 'As-built · GWW', duur: TBC },
     beats: [
       { label: 'Uitdaging', text: TBC },
@@ -59,12 +59,12 @@ export const projects: Project[] = [
       { label: 'Technologie', text: 'RTK-GPS.' },
       { label: 'Resultaat', text: TBC },
     ],
-    metingPhotos: ['/images/gallery/ondergronds-put-meting.jpg', '/images/gallery/kabelput-klinkers-detail.jpg'],
-    specs: { apparatuur: TBC, coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
+    metingPhotos: ['/images/gallery/kabelput-klinkers-overzicht.jpg', '/images/gallery/ondergronds-put-meting.jpg', '/images/gallery/kabelput-klinkers-detail.jpg'],
+    specs: { apparatuur: 'Trimble RTK-GPS', coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
     result: { meetpunten: TBC, dagen: TBC, reviseringen: TBC },
     deliverables: [
       { icon: 'doc', label: 'PDF-rapport' },
-      { icon: 'ruler', label: 'CAD-tekening' },
+      { icon: 'ruler', label: 'DWG/DXF-tekening' },
     ],
   },
   {
@@ -80,7 +80,7 @@ export const projects: Project[] = [
       { label: 'Technologie', text: '3D-laserscanner, verwerkt tot puntenwolk.' },
       { label: 'Resultaat', text: TBC },
     ],
-    specs: { apparatuur: TBC, coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
+    specs: { apparatuur: 'Trimble 3D-laserscanner', coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
     result: { meetpunten: TBC, dagen: TBC, reviseringen: TBC },
     deliverables: [
       { icon: 'pointcloud', label: 'Puntenbestand' },
@@ -101,11 +101,11 @@ export const projects: Project[] = [
       { label: 'Resultaat', text: TBC },
     ],
     metingPhotos: ['/images/gallery/sportveld-gnss-actie-1.jpg', '/images/gallery/sportveld-gnss-actie-2.jpg', '/images/gallery/sportveld-extra-1.jpg'],
-    specs: { apparatuur: TBC, coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
+    specs: { apparatuur: 'Trimble RTK-GPS', coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
     result: { meetpunten: TBC, dagen: TBC, reviseringen: TBC },
     deliverables: [
       { icon: 'doc', label: 'PDF-rapport' },
-      { icon: 'ruler', label: 'CAD-tekening' },
+      { icon: 'ruler', label: 'DWG/DXF-tekening' },
     ],
   },
   {
@@ -122,11 +122,11 @@ export const projects: Project[] = [
       { label: 'Resultaat', text: TBC },
     ],
     metingPhotos: ['/images/gallery/veld-gnss-wandelpad-2.jpg', '/images/gallery/veld-gnss-hek.jpg', '/images/gallery/nieuwbouwwijk-extra-1.jpg'],
-    specs: { apparatuur: TBC, coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
+    specs: { apparatuur: 'Trimble RTK-GPS', coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
     result: { meetpunten: TBC, dagen: TBC, reviseringen: TBC },
     deliverables: [
       { icon: 'doc', label: 'PDF-rapport' },
-      { icon: 'ruler', label: 'CAD-tekening' },
+      { icon: 'ruler', label: 'DWG/DXF-tekening' },
     ],
   },
   {
@@ -142,12 +142,19 @@ export const projects: Project[] = [
       { label: 'Technologie', text: TBC },
       { label: 'Resultaat', text: TBC },
     ],
-    metingPhotos: ['/images/gallery/techniek-fundering-detail.jpg', '/images/gallery/techniek-fundering-detail-2.jpg'],
+    metingPhotos: [
+      '/images/gallery/techniek-fundering-detail.jpg',
+      '/images/gallery/techniek-fundering-detail-2.jpg',
+      '/images/gallery/techniek-cabine-levering.jpg',
+      '/images/gallery/techniek-hijswerk.jpg',
+      '/images/gallery/techniek-fundering-bracket-1.jpg',
+      '/images/gallery/techniek-fundering-bracket-2.jpg',
+    ],
     specs: { apparatuur: TBC, coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
     result: { meetpunten: TBC, dagen: TBC, reviseringen: TBC },
     deliverables: [
       { icon: 'doc', label: 'PDF-rapport' },
-      { icon: 'ruler', label: 'CAD-tekening' },
+      { icon: 'ruler', label: 'DWG/DXF-tekening' },
     ],
   },
   {
@@ -164,11 +171,11 @@ export const projects: Project[] = [
       { label: 'Resultaat', text: TBC },
     ],
     metingPhotos: ['/images/gallery/gnss-bedrijventerrein-2.jpg'],
-    specs: { apparatuur: TBC, coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
+    specs: { apparatuur: 'Trimble RTK-GPS', coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
     result: { meetpunten: TBC, dagen: TBC, reviseringen: TBC },
     deliverables: [
       { icon: 'doc', label: 'PDF-rapport' },
-      { icon: 'ruler', label: 'CAD-tekening' },
+      { icon: 'ruler', label: 'DWG/DXF-tekening' },
     ],
   },
   {
@@ -185,11 +192,11 @@ export const projects: Project[] = [
       { label: 'Resultaat', text: TBC },
     ],
     metingPhotos: ['/images/gallery/gnss-fietspad-2.jpg', '/images/gallery/gnss-fietspad-3.jpg'],
-    specs: { apparatuur: TBC, coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
+    specs: { apparatuur: 'Trimble RTK-GPS', coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
     result: { meetpunten: TBC, dagen: TBC, reviseringen: TBC },
     deliverables: [
       { icon: 'doc', label: 'PDF-rapport' },
-      { icon: 'ruler', label: 'CAD-tekening' },
+      { icon: 'ruler', label: 'DWG/DXF-tekening' },
     ],
   },
   {
@@ -206,11 +213,11 @@ export const projects: Project[] = [
       { label: 'Resultaat', text: TBC },
     ],
     metingPhotos: ['/images/gallery/gnss-terrein-hek-2.jpg'],
-    specs: { apparatuur: TBC, coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
+    specs: { apparatuur: 'Trimble RTK-GPS', coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
     result: { meetpunten: TBC, dagen: TBC, reviseringen: TBC },
     deliverables: [
       { icon: 'doc', label: 'PDF-rapport' },
-      { icon: 'ruler', label: 'CAD-tekening' },
+      { icon: 'ruler', label: 'DWG/DXF-tekening' },
     ],
   },
   {
@@ -247,11 +254,11 @@ export const projects: Project[] = [
       { label: 'Resultaat', text: TBC },
     ],
     metingPhotos: ['/images/gallery/wegverharding-asfalt-nat.jpg', '/images/gallery/wegverharding-profiel-detail.jpg'],
-    specs: { apparatuur: TBC, coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
+    specs: { apparatuur: 'Trimble RTK-GPS', coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
     result: { meetpunten: TBC, dagen: TBC, reviseringen: TBC },
     deliverables: [
       { icon: 'doc', label: 'PDF-rapport' },
-      { icon: 'ruler', label: 'CAD-tekening' },
+      { icon: 'ruler', label: 'DWG/DXF-tekening' },
     ],
   },
   {
@@ -265,11 +272,38 @@ export const projects: Project[] = [
       { label: 'Technologie', text: 'RTK-GPS.' },
       { label: 'Resultaat', text: TBC },
     ],
-    specs: { apparatuur: TBC, coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
+    specs: { apparatuur: 'Trimble RTK-GPS', coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
     result: { meetpunten: TBC, dagen: TBC, reviseringen: TBC },
     deliverables: [
       { icon: 'doc', label: 'PDF-rapport' },
-      { icon: 'ruler', label: 'CAD-tekening' },
+      { icon: 'ruler', label: 'DWG/DXF-tekening' },
+    ],
+  },
+  {
+    slug: 'sportcomplex-atletiekbaan',
+    title: 'Inmeten sportcomplex — atletiekbaan en basketbalveld',
+    tags: ['Topografische metingen', 'Uitzetwerk'],
+    image: '/images/gallery/sportcomplex-atletiekbaan-2.jpg',
+    coverImage: '/images/gallery/sportcomplex-atletiekbaan-2.jpg',
+    meta: { opdrachtgever: TBC, locatie: TBC, dienst: 'Topografische metingen · Uitzetwerk', duur: TBC },
+    beats: [
+      { label: 'Uitdaging', text: TBC },
+      { label: 'Meting', text: 'Inmeten van een sportcomplex met atletiekbaan en basketbalveld, met RTK-GPS.' },
+      { label: 'Technologie', text: 'RTK-GPS.' },
+      { label: 'Resultaat', text: TBC },
+    ],
+    metingPhotos: [
+      '/images/gallery/sportcomplex-atletiekbaan-1.jpg',
+      '/images/gallery/sportcomplex-atletiekbaan-3.jpg',
+      '/images/gallery/sportcomplex-atletiekbaan-4.jpg',
+      '/images/gallery/sportcomplex-basketbal-1.jpg',
+      '/images/gallery/sportcomplex-basketbal-2.jpg',
+    ],
+    specs: { apparatuur: 'Trimble RTK-GPS', coordinatensysteem: 'RD New / NAP', nauwkeurigheid: TBC },
+    result: { meetpunten: TBC, dagen: TBC, reviseringen: TBC },
+    deliverables: [
+      { icon: 'doc', label: 'PDF-rapport' },
+      { icon: 'ruler', label: 'DWG/DXF-tekening' },
     ],
   },
 ];
