@@ -11,7 +11,7 @@ export interface ServiceStep {
 export interface Service {
   slug: string;
   num: string;
-  icon: 'ruler' | 'total-station' | 'shield' | 'gnss' | 'scanner' | 'field';
+  icon: 'ruler' | 'total-station' | 'shield' | 'gnss' | 'scanner' | 'field' | 'doc';
   title: string;
   summary: string;
   heroImage?: string;
@@ -113,6 +113,21 @@ export const services: Service[] = [
       { title: 'Hoogtekaart', description: 'Op basis van de meting wordt een hoogtekaart opgesteld voor waterafvoer en beheer.' },
       { title: 'Drainageontwerp', description: 'Waar gewenst adviseren we over drainage op basis van de gemeten hoogtes.' },
       { title: 'Levering', description: 'U ontvangt de meetdata en kaarten in een bruikbaar formaat voor uw bedrijfsvoering.' },
+    ],
+  },
+  {
+    slug: 'projectontwerp',
+    num: '07',
+    icon: 'doc',
+    title: 'Projectontwerp & tekenwerk',
+    summary:
+      'Van meetdata naar bruikbaar ontwerp — CAD-tekenwerk, projectontwerp voor GWW- en bouwprojecten en uitzetplannen, door dezelfde hand die ook het veldwerk doet.',
+    sectors: ['GWW', 'Bouw', 'Aannemers'],
+    steps: [
+      { title: 'Meetdata als basis', description: 'Het ontwerp start vanuit de eigen inmeting, zodat tekening en werkelijke situatie altijd overeenkomen.' },
+      { title: 'CAD-tekenwerk', description: 'Plattegronden, profielen en secties worden uitgewerkt in CAD.' },
+      { title: 'Projectontwerp', description: 'Voor GWW- en bouwprojecten wordt de technische oplossing zelf ontworpen, niet alleen getekend.' },
+      { title: 'Uitzetplan', description: 'Het ontwerp wordt vertaald naar een uitzetplan, klaar om zelf in het veld te realiseren.' },
     ],
   },
 ];

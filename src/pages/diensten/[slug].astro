@@ -24,7 +24,7 @@ const { service } = Astro.props;
   <section class="svc-hero">
     <div class="svc-hero-grid">
       <div>
-        <span class="svc-tagnum mono">Dienst {service.num} / 06</span>
+        <span class="svc-tagnum mono">Dienst {service.num} / {String(services.length).padStart(2, '0')}</span>
         <span class="eyebrow">{service.title}</span>
         <h1>{service.title}</h1>
         <p class="lead">{service.summary}</p>

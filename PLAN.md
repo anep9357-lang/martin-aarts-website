@@ -186,6 +186,29 @@ AI-zoekresultaat overgenomen — expliciet nagevraagd en bevestigd):
 - KVK-nummer **69194963** — nu zichtbaar in de Privacyverklaring.
 - BTW-nummer blijft GEGEVEN NOG TE BEVESTIGEN (niet gevraagd/bevestigd).
 
+**Live feedback op de gepubliceerde site verwerkt:**
+- Twee icoon-bugs gecorrigeerd: het "total-station"-icoon (dienst
+  Uitzetwerk) zag er per ongeluk uit als een lopend persoon, en het
+  "scanner"-icoon (3D-laserscanning) zag er per ongeluk uit als een
+  hangslot — beide paden in `IconSprite.astro` herzien tot duidelijk
+  herkenbare vormen (statief+instrument, en scan-signaal).
+- **Nieuwe 7e dienst toegevoegd: "Projectontwerp & tekenwerk"**
+  (`/diensten/projectontwerp`) — de klant doet naast het meetwerk ook
+  zelf het CAD-tekenwerk, het projectontwerp voor GWW-/bouwprojecten
+  en de uitzetplannen; dit stond nog nergens op de site. Toegevoegd
+  aan de Diensten-grid, de footer-links en de "aantal diensten"-tellers
+  op Home (6 → 7). Nog geen eigen foto beschikbaar — eerlijke
+  placeholder in plaats van een gekunstelde/geleende foto.
+- Bugfix: het "Dienst X / 06"-label op de dienst-detailpagina's had het
+  totaal aantal diensten hardcoded staan; dit brak zodra een dienst
+  werd toegevoegd. Nu berekend uit `services.length`, dus toekomstbestendig.
+- Footer-onderbalk (copyright + Privacyverklaring-link + social-iconen)
+  van links/rechts-verdeeld naar gecentreerd op verzoek van de klant.
+- Het WhatsApp-icoon was een lege, abstracte contourvorm — vervangen
+  door een herkenbare ballon-met-telefoon-vorm (nu overal consistent:
+  header, footer, contactpagina, want alle drie lezen uit dezelfde
+  `ic-wa`-sprite-definitie).
+
 **Hosting/lancering:**
 - `netlify.toml` toegevoegd — kant-en-klare deployconfiguratie
   (buildcommando, publish-map `dist`, beveiligingsheaders, langdurige
