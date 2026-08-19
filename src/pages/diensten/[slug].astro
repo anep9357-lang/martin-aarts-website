@@ -22,7 +22,7 @@ const { service } = Astro.props;
   </div>
 
   <section class="svc-hero">
-    <div class="svc-hero-grid">
+    <div class:list={['svc-hero-grid', { 'no-photo': !service.heroImage }]}>
       <div>
         <span class="svc-tagnum mono">Dienst {service.num} / {String(services.length).padStart(2, '0')}</span>
         <span class="eyebrow">{service.title}</span>
@@ -30,13 +30,14 @@ const { service } = Astro.props;
         <p class="lead">{service.summary}</p>
         <Button href="/contact" variant="primary" icon="arrow">Offerte voor deze dienst</Button>
       </div>
-      <PhotoFrame
-        src={service.heroImage}
-        alt={service.title}
-        placeholderLabel={`Echte foto — ${service.title}`}
-        aspectRatio="4 / 3"
-        priority
-      />
+      {service.heroImage && (
+        <PhotoFrame
+          src={service.heroImage}
+          alt={service.title}
+          aspectRatio="4 / 3"
+          priority
+        />
+      )}
     </div>
   </section>
 
@@ -93,6 +94,12 @@ const { service } = Astro.props;
     gap: 48px;
     align-items: end;
     padding-bottom: 48px;
+  }
+  .svc-hero-grid.no-photo {
+    grid-template-columns: 1fr;
+  }
+  .svc-hero-grid.no-photo .lead {
+    max-width: 62ch;
   }
   .svc-tagnum {
     font-size: 13px;
